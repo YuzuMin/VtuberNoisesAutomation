@@ -75,13 +75,35 @@ void generate_2() {
         cout << "}";
     }
 
-    //Set answer to n to ensure the while loop isn't skipped
-    answer = 'n';
 
-    while (answer != 'Y' || answer == 'y') {
-        cout << "Return to menu? (Y/n)" << endl;
-        cin >> answer;
+    return_to_menu();
+
+}
+
+void generate_4() {
+    cout << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
+    cout << "To add else if statements in private void startRandomSound() \n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
+    cout << endl;
+
+    cout << "switch (month) {" << endl;
+
+    //For private void startRandomSound()
+    for (temp_num = start_num; temp_num <= end_num; temp_num++) {
+        cout << "case " << temp_num + 2 << ":" << endl;
+        cout << "noise = MediaPlayer.create(this, R.raw." << vtuber << "noise" << temp_num << ");" << endl;
+        cout << "noise.setOnCompletionListener(listener);" << endl;
+        cout << "noise.start();" << endl;
+        cout << "if (switch1) {" << endl;
+        cout << "Toast.makeText(this, \"vtuber text\", Toast.LENGTH_SHORT).show();" << endl;
+        cout << "}" << endl;
+        cout << "set1.start();" << endl;
+        cout << "break;" << endl;
+
     }
+
+    cout << "}" << endl;
 
 
     return_to_menu();
@@ -110,7 +132,7 @@ void generate_3() {
 
 }
 
-void generate_4() {
+void generate_11() {
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
     cout << "To declare Switch variable in ClickerSettings.Java \n";
@@ -127,7 +149,7 @@ void generate_4() {
 }
 
 
-void generate_5() {
+void generate_12() {
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
     cout << "To setup Switches in ClickerSettings.Java \n";
@@ -167,7 +189,53 @@ void generate_5() {
 }
 
 
-void generate_6() {
+void generate_13() {
+    cout << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
+    cout << "To setup Toggle Button in ClickerSettings.Java \n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
+    cout << endl;
+
+    cout << "toggle_btn=findViewById(R.id.toggle_btn);" << endl;
+    cout << "toggle_btn.setOnClickListener(new View.OnClickListener() {" << endl;
+    cout << "@Override" << endl;
+    cout << "public void onClick(View v) {" << endl;
+    cout << "if(switch3.isChecked()&&switch4.isChecked()){" << endl;
+    cout << endl;
+    for (temp_num = start_num; temp_num <= end_num; temp_num++) {
+
+        cout << "SoundSettingsEditor =getSharedPreferences(\"save" << temp_num + 2 << "\",MODE_PRIVATE).edit();" << endl;
+        cout << "SoundSettingsEditor.putBoolean(\"value" << temp_num + 2 << "\",false);" << endl;
+        cout << "SoundSettingsEditor.apply();" << endl;
+        cout << "switch" << temp_num + 2 << ".setChecked(false);" << endl;
+        cout << endl;
+    }
+
+    cout << "}else{" << endl;
+
+    cout << endl;
+    for (temp_num = start_num; temp_num <= end_num; temp_num++) {
+        
+        cout << "SoundSettingsEditor =getSharedPreferences(\"save" << temp_num + 2 << "\",MODE_PRIVATE).edit();" << endl;
+        cout << "SoundSettingsEditor.putBoolean(\"value" << temp_num + 2 << "\",true);" << endl;
+        cout << "SoundSettingsEditor.apply();" << endl;
+        cout << "switch" << temp_num + 2 << ".setChecked(true);" << endl;
+        cout << endl;
+
+    }
+
+
+    cout << "}" << endl;
+    cout << "}" << endl;
+    cout << "});" << endl;
+
+
+
+    return_to_menu();
+}
+
+
+void generate_21() {
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
     cout << "For clicker_settings.xml \n";
@@ -204,7 +272,7 @@ void generate_6() {
 }
 
 
-void generate_7() {
+void generate_31() {
     //For README file
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
@@ -288,19 +356,21 @@ int main()
         cout << "1. Generate boolean variable (boolean switch)" << endl;
         cout << "2. Generate else if statements for private void startRandomSound()" << endl;
         cout << "3. Generate if statements in private void retrievedata()" << endl;
+        cout << "4. Generate switch conditions for private void startRandomSound()" << endl;
 
 
         cout << "~~~~~~~~~ For ClickerSettings.Java ~~~~~~~~~" << endl;
-        cout << "4. Generate Switch variable (Switch switch)" << endl;
-        cout << "5. Generate setup code for Switches" << endl;
+        cout << "11. Generate Switch variable (Switch switch)" << endl;
+        cout << "12. Generate setup code for Switches" << endl;
+        cout << "13. Generate setup code for Toggle Button" << endl;
 
 
         cout << "~~~~~~~~~ For clicker_settings.xml ~~~~~~~~~" << endl;
-        cout << "6. Generate switches for xml file" << endl;
+        cout << "21. Generate switches for xml file" << endl;
 
 
         cout << "~~~~~~~~~ For Documentation ~~~~~~~~~" << endl;
-        cout << "7. Generate Documentation for README" << endl;
+        cout << "31. Generate Documentation for README" << endl;
 
 
         cout << "~~~~~~~~~" << endl;
@@ -328,19 +398,29 @@ int main()
             generate_4();
             cout << "\n\n\n";
         }
-        else if (execution_code == 5) {
+        else if (execution_code == 11) {
             cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-            generate_5();
+            generate_11();
             cout << "\n\n\n";
         }
-        else if (execution_code == 6) {
+        else if (execution_code == 12) {
             cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-            generate_6();
+            generate_12();
             cout << "\n\n\n";
         }
-        else if (execution_code == 7) {
+        else if (execution_code == 13) {
             cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-            generate_7();
+            generate_13();
+            cout << "\n\n\n";
+        }
+        else if (execution_code == 21) {
+            cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+            generate_21();
+            cout << "\n\n\n";
+        }
+        else if (execution_code == 31) {
+            cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+            generate_31();
             cout << "\n\n\n";
         }
         else if (execution_code == 99) {
