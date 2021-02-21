@@ -249,16 +249,20 @@ void generate_14() {
     int endIMG_num;
     int tempIMG_num;
     int tempIMG_num2;
+    string Vtuber;
 
     cout << "Enter starting number for IMG :";
     cin >> startIMG_num;
     cout << "Enter ending number for IMG :";
     cin >> endIMG_num;
+    cout << "Enter Vtuber name (1st letter caps) :";
+    cin >> Vtuber;
 
+    cout << endl;
 
     for (tempIMG_num = startIMG_num; tempIMG_num <= endIMG_num; tempIMG_num++) {
 
-        cout << vtuber << "IMG" << tempIMG_num <<".setOnClickListener(new View.OnClickListener() {" << endl;
+        cout << Vtuber << "IMG" << tempIMG_num <<".setOnClickListener(new View.OnClickListener() {" << endl;
         cout << "@Override" << endl;
         cout << "public void onClick(View v) {" << endl;
         cout << "charavalue="<< tempIMG_num<<";" << endl;
@@ -270,17 +274,17 @@ void generate_14() {
         for (tempIMG_num2 = startIMG_num; tempIMG_num2 <= endIMG_num; tempIMG_num2++) {
 
             if (tempIMG_num2 == tempIMG_num) {
-                cout << vtuber << "IMG" << tempIMG_num2 << ".setChecked(true);" << endl;
+                cout << Vtuber << "IMG" << tempIMG_num2 << ".setChecked(true);" << endl;
             }
             else {
-                cout << vtuber << "IMG" << tempIMG_num2 << ".setChecked(false);" << endl;
+                cout << Vtuber << "IMG" << tempIMG_num2 << ".setChecked(false);" << endl;
             }
         }
 
         cout << "}" << endl;
         cout << "});" << endl;
 
-        cout << vtuber << "IMG" << tempIMG_num << "Row.setOnClickListener(new View.OnClickListener() {" << endl;
+        cout << Vtuber << "IMG" << tempIMG_num << "Row.setOnClickListener(new View.OnClickListener() {" << endl;
         cout << "@Override" << endl;
         cout << "public void onClick(View v) {" << endl;
         cout << "charavalue=" << tempIMG_num << ";" << endl;
@@ -292,10 +296,10 @@ void generate_14() {
         for (tempIMG_num2 = startIMG_num; tempIMG_num2 <= endIMG_num; tempIMG_num2++) {
 
             if (tempIMG_num2 == tempIMG_num) {
-                cout << vtuber << "IMG" << tempIMG_num2 << ".setChecked(true);" << endl;
+                cout << Vtuber << "IMG" << tempIMG_num2 << ".setChecked(true);" << endl;
             }
             else {
-                cout << vtuber << "IMG" << tempIMG_num2 << ".setChecked(false);" << endl;
+                cout << Vtuber << "IMG" << tempIMG_num2 << ".setChecked(false);" << endl;
             }
         }
 
@@ -316,7 +320,7 @@ void generate_14() {
 void generate_21() {
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << "For clicker_settings.xml \n";
+    cout << "For Audio Switches in clicker_settings.xml \n";
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
     cout << endl;
 
@@ -348,6 +352,59 @@ void generate_21() {
 
     return_to_menu();
 }
+
+
+
+
+void generate_22() {
+    cout << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << "For Radio Buttons in clicker_settings.xml \n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << endl;
+
+    int startIMG_num;
+    int endIMG_num;
+    int tempIMG_num;
+    int tempIMG_num2;
+    string Vtuber;
+
+    cout << "Enter starting number for IMG :";
+    cin >> startIMG_num;
+    cout << "Enter ending number for IMG :";
+    cin >> endIMG_num;
+    cout << "Enter Vtuber name (1st letter caps) :";
+    cin >> Vtuber;
+
+    cout << endl;
+    cout << endl;
+    for (tempIMG_num = startIMG_num; tempIMG_num <= endIMG_num; tempIMG_num++) {
+
+        cout << "<TableRow" << endl;
+        cout << "android:id=\"@+id/"<<vtuber<< tempIMG_num <<"_img_row\">" << endl;
+        cout << "<ImageView" << endl;
+        cout << "android:padding=\"10dp\"" << endl;
+        cout << "android:src=\"@drawable/" << vtuber << tempIMG_num << "\"" << endl;
+        cout << "android:layout_width=\"100dp\"" << endl;
+        cout << "android:layout_height=\"100dp\"/>" << endl;
+        cout << "<RadioButton" << endl;
+        cout << "android:id=\"@+id/" << vtuber << tempIMG_num << "_img\"" << endl;
+        cout << "android:layout_gravity=\"center_vertical\"" << endl;
+        cout << "android:textSize=\"17dp\"" << endl;
+        cout << "android:buttonTint=\"@color/colorAccent\"" << endl;
+        cout << "android:text=\"" << Vtuber << " " << tempIMG_num << "\"" << endl;
+        cout << "android:textColor=\"@color/colorAccent\"" << endl;
+        cout << "android:layout_width=\"match_parent\"" << endl;
+        cout << "android:layout_height=\"wrap_content\"/>" << endl;
+        cout << "</TableRow>" << endl;
+        cout << endl;
+
+    }
+
+    return_to_menu();
+}
+
+
 
 
 void generate_31() {
@@ -502,6 +559,11 @@ int main()
         else if (execution_code == 21) {
             cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
             generate_21();
+            cout << "\n\n\n";
+        }
+        else if (execution_code == 22) {
+            cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+            generate_22();
             cout << "\n\n\n";
         }
         else if (execution_code == 31) {
