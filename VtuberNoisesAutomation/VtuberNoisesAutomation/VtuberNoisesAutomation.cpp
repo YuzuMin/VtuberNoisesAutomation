@@ -313,6 +313,81 @@ void generate_14() {
 }
 
 
+void generate_15() {
+    cout << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
+    cout << "To declare RadioButton and TableRow in ClickerSettings.Java \n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
+    cout << endl;
+
+    int startIMG_num;
+    int endIMG_num;
+    int tempIMG_num;
+    int tempIMG_num2;
+    string Vtuber;
+
+    cout << "Enter starting number for IMG :";
+    cin >> startIMG_num;
+    cout << "Enter ending number for IMG :";
+    cin >> endIMG_num;
+    cout << "Enter Vtuber name (1st letter caps) :";
+    cin >> Vtuber;
+
+    cout << endl;
+    cout << endl;
+
+    for (tempIMG_num = startIMG_num; tempIMG_num <= endIMG_num; tempIMG_num++) {
+
+        cout <<"TableRow ";
+        cout << Vtuber << "IMG" << tempIMG_num << "Row;" << endl;
+
+    }
+
+    for (tempIMG_num = startIMG_num; tempIMG_num <= endIMG_num; tempIMG_num++) {
+
+        cout << "RadioButton ";
+        cout << Vtuber << "IMG" << tempIMG_num << ";" << endl;
+
+    }
+
+
+    return_to_menu();
+}
+
+void generate_16() {
+    cout << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
+    cout << "To link RadioButton and TableRow in ClickerSettings.Java \n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
+    cout << endl;
+
+    int startIMG_num;
+    int endIMG_num;
+    int tempIMG_num;
+    int tempIMG_num2;
+    string Vtuber;
+
+    cout << "Enter starting number for IMG :";
+    cin >> startIMG_num;
+    cout << "Enter ending number for IMG :";
+    cin >> endIMG_num;
+    cout << "Enter Vtuber name (1st letter caps) :";
+    cin >> Vtuber;
+
+    cout << endl;
+    cout << endl;
+
+
+    for (tempIMG_num = startIMG_num; tempIMG_num <= endIMG_num; tempIMG_num++) {
+
+        cout << Vtuber << "IMG" << tempIMG_num << "=findViewById(R.id."<<vtuber << tempIMG_num << "_img);" << endl;
+        cout << Vtuber << "IMG" << tempIMG_num << "Row=findViewById(R.id." << vtuber << tempIMG_num << "_img_row);" << endl;
+
+    }
+
+
+    return_to_menu();
+}
 
 
 
@@ -499,6 +574,8 @@ int main()
         cout << "12. Generate setup code for Switches" << endl;
         cout << "13. Generate setup code for Toggle Button" << endl;
         cout << "14. Generate setup code for Radio Buttons" << endl;
+        cout << "15. Generate declaration of RadioButton and TableRow " << endl;
+        cout << "16. Generate link for RadioButton and TableRow " << endl;
 
 
         cout << "~~~~~~~~~ For clicker_settings.xml ~~~~~~~~~" << endl;
@@ -554,6 +631,16 @@ int main()
         else if (execution_code == 14) {
             cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
             generate_14();
+            cout << "\n\n\n";
+        }
+        else if (execution_code == 15) {
+            cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+            generate_15();
+            cout << "\n\n\n";
+        }
+        else if (execution_code == 16) {
+            cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+            generate_16();
             cout << "\n\n\n";
         }
         else if (execution_code == 21) {
