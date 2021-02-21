@@ -235,6 +235,84 @@ void generate_13() {
 }
 
 
+
+
+
+void generate_14() {
+    cout << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
+    cout << "To setup RadioButton in ClickerSettings.Java \n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
+    cout << endl;
+
+    int startIMG_num;
+    int endIMG_num;
+    int tempIMG_num;
+    int tempIMG_num2;
+
+    cout << "Enter starting number for IMG :";
+    cin >> startIMG_num;
+    cout << "Enter ending number for IMG :";
+    cin >> endIMG_num;
+
+
+    for (tempIMG_num = startIMG_num; tempIMG_num <= endIMG_num; tempIMG_num++) {
+
+        cout << vtuber << "IMG" << tempIMG_num <<".setOnClickListener(new View.OnClickListener() {" << endl;
+        cout << "@Override" << endl;
+        cout << "public void onClick(View v) {" << endl;
+        cout << "charavalue="<< tempIMG_num<<";" << endl;
+        cout << "SoundSettingsEditor =getSharedPreferences(\"Chara\",MODE_PRIVATE).edit();" << endl;
+        cout << "SoundSettingsEditor.putInt(\"CharaValue\",charavalue);" << endl;
+        cout << "SoundSettingsEditor.apply();" << endl;
+
+
+        for (tempIMG_num2 = startIMG_num; tempIMG_num2 <= endIMG_num; tempIMG_num2++) {
+
+            if (tempIMG_num2 == tempIMG_num) {
+                cout << vtuber << "IMG" << tempIMG_num2 << ".setChecked(true);" << endl;
+            }
+            else {
+                cout << vtuber << "IMG" << tempIMG_num2 << ".setChecked(false);" << endl;
+            }
+        }
+
+        cout << "}" << endl;
+        cout << "});" << endl;
+
+        cout << vtuber << "IMG" << tempIMG_num << "Row.setOnClickListener(new View.OnClickListener() {" << endl;
+        cout << "@Override" << endl;
+        cout << "public void onClick(View v) {" << endl;
+        cout << "charavalue=" << tempIMG_num << ";" << endl;
+        cout << "SoundSettingsEditor =getSharedPreferences(\"Chara\",MODE_PRIVATE).edit();" << endl;
+        cout << "SoundSettingsEditor.putInt(\"CharaValue\",charavalue);" << endl;
+        cout << "SoundSettingsEditor.apply();" << endl;
+
+
+        for (tempIMG_num2 = startIMG_num; tempIMG_num2 <= endIMG_num; tempIMG_num2++) {
+
+            if (tempIMG_num2 == tempIMG_num) {
+                cout << vtuber << "IMG" << tempIMG_num2 << ".setChecked(true);" << endl;
+            }
+            else {
+                cout << vtuber << "IMG" << tempIMG_num2 << ".setChecked(false);" << endl;
+            }
+        }
+
+        cout << "}" << endl;
+        cout << "});" << endl;
+    }
+
+     
+
+    return_to_menu();
+}
+
+
+
+
+
+
 void generate_21() {
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
@@ -363,10 +441,12 @@ int main()
         cout << "11. Generate Switch variable (Switch switch)" << endl;
         cout << "12. Generate setup code for Switches" << endl;
         cout << "13. Generate setup code for Toggle Button" << endl;
+        cout << "14. Generate setup code for Radio Buttons" << endl;
 
 
         cout << "~~~~~~~~~ For clicker_settings.xml ~~~~~~~~~" << endl;
         cout << "21. Generate switches for xml file" << endl;
+        cout << "22. Generate radiobutton for xml file" << endl;
 
 
         cout << "~~~~~~~~~ For Documentation ~~~~~~~~~" << endl;
@@ -377,6 +457,7 @@ int main()
         cout << "99. Exit to Desktop" << endl;
         cout << "~~~~~~~~~" << endl;
         cin >> execution_code;
+
 
         if (execution_code == 1) {
             cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
@@ -411,6 +492,11 @@ int main()
         else if (execution_code == 13) {
             cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
             generate_13();
+            cout << "\n\n\n";
+        }
+        else if (execution_code == 14) {
+            cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+            generate_14();
             cout << "\n\n\n";
         }
         else if (execution_code == 21) {
