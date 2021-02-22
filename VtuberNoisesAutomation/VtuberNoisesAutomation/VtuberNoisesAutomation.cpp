@@ -490,9 +490,31 @@ void generate_31() {
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
     cout << endl;
 
-    cout << "# " << vtuber << " Noises" << endl;
-    cout << vtuber << " Noises is a clicker app for Android smartphones and tablets that brings entertainment to you by playing noises made by " << vtuber << " ." << endl;
-    cout << "The interface of " << vtuber << " Noises is designed to be simple, intuitive and efficient. By removing what is not essential, we make access to everything you need even easier." << endl;
+
+   
+    string VtuberFirst;
+    string VtuberLast;
+
+
+    cout << "Enter Vtuber First name (eg. Tokino) :";
+    cin >> VtuberFirst;
+    cout << "Enter Vtuber Last name (eg. Sora) :";
+    cin >> VtuberLast;
+
+    cout << endl;
+    cout << endl;
+
+
+    cout << "# " << VtuberFirst <<" "<< VtuberLast<< " Noises" << endl;
+    cout << VtuberLast << " Noises is a clicker app for Android smartphones and tablets that brings entertainment to you by playing noises made by " << VtuberLast << " ." << endl;
+    cout << "The interface of " << VtuberLast << " Noises is designed to be simple, intuitive and efficient. By removing what is not essential, we make access to everything you need even easier." << endl;
+    cout << endl;
+
+    cout << "# Download" << endl;
+    cout << "[<img src=\"https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png\"" << endl;
+    cout << "alt=\"Get it on Google Play\"" << endl;
+    cout << "height=\"80\">](https://play.google.com/store/apps/details?id=com.yuzumin." << vtuber << "noises)" << endl;
+
 
     cout << endl;
     cout << "# Features" << endl;
@@ -508,7 +530,7 @@ void generate_31() {
     cout << "# List of Noises" << endl;
     //loops to generate (vtuber)noise(number) for documentation
     for (temp_num = start_num; temp_num <= end_num; temp_num++) {
-        cout << vtuber << "noise" << temp_num << " " << endl;
+        cout << "* "<<vtuber << "noise" << temp_num << " " << endl;
     }
 
 
