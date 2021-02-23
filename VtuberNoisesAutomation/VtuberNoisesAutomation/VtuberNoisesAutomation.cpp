@@ -411,7 +411,7 @@ void generate_21() {
         cout << "android:layout_weight=\"1\"" << endl;
         cout << "android:layout_width=\"wrap_content\"" << endl;
         cout << "android:layout_height=\"wrap_content\"" << endl;
-        cout << "android:text=\"vtuber text\"" << endl;
+        cout << "android:text=\"@string/noise"<<temp_num<<"_text\"" << endl;
         cout << "android:textColor=\"#f1f1f1\"" << endl;
         cout << "android:textSize=\"17sp\" />" << endl;
         cout << "" << endl;
@@ -486,12 +486,30 @@ void generate_31() {
     //For README file
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << "To generate string res for strings.xml \n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << endl;
+
+    for (temp_num = start_num; temp_num <= end_num; temp_num++) {
+        cout << "<string name=\"noise" << temp_num << "_text\">Vtuber Text</string>" << endl;
+    }
+
+    return_to_menu();
+
+}
+
+
+
+void generate_41() {
+    //For README file
+    cout << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
     cout << "For Documentation in README \n";
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
     cout << endl;
 
 
-   
+
     string VtuberFirst;
     string VtuberLast;
 
@@ -505,7 +523,7 @@ void generate_31() {
     cout << endl;
 
 
-    cout << "# " << VtuberFirst <<" "<< VtuberLast<< " Noises" << endl;
+    cout << "# " << VtuberFirst << " " << VtuberLast << " Noises" << endl;
     cout << VtuberLast << " Noises is a clicker app for Android smartphones and tablets that brings entertainment to you by playing noises made by " << VtuberLast << " ." << endl;
     cout << "The interface of " << VtuberLast << " Noises is designed to be simple, intuitive and efficient. By removing what is not essential, we make access to everything you need even easier." << endl;
     cout << endl;
@@ -530,17 +548,13 @@ void generate_31() {
     cout << "# List of Noises" << endl;
     //loops to generate (vtuber)noise(number) for documentation
     for (temp_num = start_num; temp_num <= end_num; temp_num++) {
-        cout << "* "<<vtuber << "noise" << temp_num << " " << endl;
+        cout << "* " << vtuber << "noise" << temp_num << " " << endl;
     }
 
 
     return_to_menu();
 
 }
-
-
-
-
 
 
 
@@ -605,8 +619,11 @@ int main()
         cout << "22. Generate radiobutton for xml file" << endl;
 
 
+        cout << "~~~~~~~~~ For strings.xml ~~~~~~~~~" << endl;
+        cout << "31. Generate string res for strings.xml" << endl;
+
         cout << "~~~~~~~~~ For Documentation ~~~~~~~~~" << endl;
-        cout << "31. Generate Documentation for README" << endl;
+        cout << "41. Generate Documentation for README" << endl;
 
 
         cout << "~~~~~~~~~" << endl;
@@ -678,6 +695,11 @@ int main()
         else if (execution_code == 31) {
             cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
             generate_31();
+            cout << "\n\n\n";
+        }
+        else if (execution_code == 41) {
+            cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+            generate_41();
             cout << "\n\n\n";
         }
         else if (execution_code == 99) {
