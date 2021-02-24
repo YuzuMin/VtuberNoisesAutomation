@@ -1,9 +1,8 @@
 ﻿  VtuberNoisesAutomation.cpp
-D:\GIT\VTUBER_NOISES\VtuberNoisesAutomation\VtuberNoisesAutomation\VtuberNoisesAutomation\VtuberNoisesAutomation.cpp(326,9): warning C4101: 'tempIMG_num2': unreferenced local variable
-D:\GIT\VTUBER_NOISES\VtuberNoisesAutomation\VtuberNoisesAutomation\VtuberNoisesAutomation\VtuberNoisesAutomation.cpp(367,9): warning C4101: 'tempIMG_num2': unreferenced local variable
-D:\GIT\VTUBER_NOISES\VtuberNoisesAutomation\VtuberNoisesAutomation\VtuberNoisesAutomation\VtuberNoisesAutomation.cpp(444,9): warning C4101: 'tempIMG_num2': unreferenced local variable
+D:\GIT\VTUBER_NOISES\VtuberNoisesAutomation\VtuberNoisesAutomation\VtuberNoisesAutomation\VtuberNoisesAutomation.cpp(185,9): warning C4101: 'tempIMG_num2': unreferenced local variable
+D:\GIT\VTUBER_NOISES\VtuberNoisesAutomation\VtuberNoisesAutomation\VtuberNoisesAutomation\VtuberNoisesAutomation.cpp(475,9): warning C4101: 'tempIMG_num2': unreferenced local variable
   Generating code
-  2 of 124 functions ( 1.6%) were compiled, the rest were copied from previous compilation.
+  2 of 182 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
