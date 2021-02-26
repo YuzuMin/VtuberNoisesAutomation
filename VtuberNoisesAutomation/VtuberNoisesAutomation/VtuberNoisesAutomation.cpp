@@ -53,6 +53,16 @@ void submenu1_1() {
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
     cout << endl;
 
+    //Prompt user for the starting and ending number of the noises
+    cout << "Enter the starting number for the noises : ";
+    cin >> start_num;
+    cout << "Enter the ending number for the noises : ";
+    cin >> end_num;
+    cout << "Enter Vtuber name (no caps) :";
+    cin >> vtuber;
+    cout << endl;
+    cout << endl;
+    cout << endl;
     cout << "switch (num) {" << endl;
 
     for (temp_num = start_num; temp_num <= end_num; temp_num++) {
@@ -642,7 +652,7 @@ void submenu5_1() {
 
     cout << endl;
     cout << "# Features" << endl;
-    cout << "* " << end_num << " noises" << endl;
+    cout << "* " << end_num << " Noises" << endl;
     cout << "* Alarm Clock" << endl;
     cout << "* Google Drive Download" << endl;
 
