@@ -45,12 +45,12 @@ void return_to_menu() {
 
 
 
-void submenu1_1() {
+void MainActivity_submenu1_4() {
     cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
     cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << "To add switch statements in private void startRandomSound() \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
+    cout << "To add switch statements in private void playSound(num) \n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
     cout << endl;
 
     //Prompt user for the starting and ending number of the noises
@@ -86,7 +86,7 @@ void submenu1_1() {
 
 }
 
-void submenu1_2() {
+void MainActivity_submenu1_5() {
     cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
@@ -122,33 +122,6 @@ void submenu1_2() {
     }
 
     cout << "}" << endl;
-
-    return_to_menu();
-
-}
-
-void submenu1_3() {
-    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << "To add if statements in private void retrievedata() \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << endl;
-
-    //Prompt user for the starting and ending number of the noises
-    cout << "Enter the starting number for the noises : ";
-    cin >> start_num;
-    cout << "Enter the ending number for the noises : ";
-    cin >> end_num;
-
-    //For private void retrievedata()
-    for (temp_num = start_num; temp_num <= end_num; temp_num++) {
-        cout << "SavedSettings =getSharedPreferences(\"save" << temp_num + 2 << "\", MODE_PRIVATE);" << endl;
-        cout << "if ("<<"SavedSettings.getBoolean(\"value" << temp_num + 2 << "\",true)" << ") {" << endl;
-        cout << "listofsounds.add(" << temp_num + 2 << ");" << endl;
-        cout << "}";
-        cout << endl;
-    }
 
     return_to_menu();
 
@@ -498,7 +471,7 @@ void submenu3_1() {
         cout << "<Switch" << endl;
         cout << "android:id=\"@+id/switch" << temp_num + 2 << "\"" << endl;
         cout << "android:layout_width=\"match_parent\"" << endl;
-        cout << "android:layout_height=\"match_parent\" />" << endl;
+        cout << "android:layout_height=\"wrap_content\" />" << endl;
         cout << "" << endl;
         cout << "</TableRow>" << endl;
         cout << endl;
@@ -858,6 +831,145 @@ void submenu6_2() {
 }
 
 
+void MainActivity_submenu1_1() {
+    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    cout << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << "For Audio Buttons in activity_main0.xml \n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << endl;
+
+    //Prompt user for the starting and ending number of the noises
+    cout << "Enter the starting number for the noises : ";
+    cin >> start_num;
+    cout << "Enter the ending number for the noises : ";
+    cin >> end_num;
+
+    cout << "\n\n\n";
+
+
+    for (temp_num = start_num; temp_num <= end_num; temp_num++) {
+
+
+        cout << "<androidx.cardview.widget.CardView" << endl;
+        cout << "android:id=\"@+id/sound"<<temp_num<<"\"" << endl;
+        cout << "android:layout_width=\"100dp\"" << endl;
+        cout << "android:layout_height=\"100dp\"" << endl;
+        if (temp_num == 1) {
+            cout << "android:layout_marginHorizontal=\"10dp\"" << endl;
+        }
+        else {
+            cout << "android:layout_marginRight=\"10dp\"" << endl;
+        }
+        cout << "app:cardBackgroundColor=\"@color/clearhomeicons\"" << endl;
+        cout << "app:cardCornerRadius=\"20dp\">" << endl;
+        cout << "<TextView" << endl;
+        cout << "android:layout_width=\"match_parent\"" << endl;
+        cout << "android:layout_height=\"match_parent\"" << endl;
+        cout << "android:gravity=\"center\"" << endl;
+        cout << "android:text=\"@string/noise" << temp_num << "_text\"" << endl;
+        cout << "android:textAlignment=\"center\"" << endl;
+        cout << "android:textColor=\"@color/porcelain\" />" << endl;
+        cout << "</androidx.cardview.widget.CardView>" << endl;
+        cout << endl;
+
+    }
+
+    return_to_menu();
+}
+
+
+void MainActivity_submenu1_2() {
+    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    cout << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << "To declare CardView in MainActivity.xml \n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << endl;
+
+    //Prompt user for the starting and ending number of the noises
+    cout << "Enter the starting number for the noises : ";
+    cin >> start_num;
+    cout << "Enter the ending number for the noises : ";
+    cin >> end_num;
+
+    cout << "\n\n\n";
+
+
+    for (temp_num = start_num; temp_num <= end_num; temp_num++) {
+        cout << "CardView SoundBTN" << temp_num << ";" << endl;
+    }
+
+    return_to_menu();
+}
+
+
+void MainActivity_submenu1_3() {
+    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    cout << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << "To setup CardView in MainActivity0.xml \n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << endl;
+
+    //Prompt user for the starting and ending number of the noises
+    cout << "Enter the starting number for the noises : ";
+    cin >> start_num;
+    cout << "Enter the ending number for the noises : ";
+    cin >> end_num;
+
+    cout << "\n\n\n";
+
+
+    for (temp_num = start_num; temp_num <= end_num; temp_num++) {
+        cout << "SoundBTN" << temp_num << "=findViewById(R.id.sound" << temp_num << ");" << endl;
+        cout << "SoundBTN" << temp_num << ".setVisibility(View.GONE);" << endl;
+        cout << "SoundBTN" << temp_num << ".setOnClickListener(new View.OnClickListener() {" << endl;
+        cout << "@Override" << endl;
+        cout << "public void onClick(View v) {" << endl;
+        cout << "playSound(" << temp_num+2 << ");" << endl;
+        cout << "}" << endl;
+        cout << "});" << endl;
+        cout << endl;
+    }
+
+    return_to_menu();
+}
+
+void MainActivity_submenu1_6() {
+    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    cout << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
+    cout << "To add if statements in private void retrievedata() \n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
+    cout << endl;
+
+    //Prompt user for the starting and ending number of the noises
+    cout << "Enter the starting number for the noises : ";
+    cin >> start_num;
+    cout << "Enter the ending number for the noises : ";
+    cin >> end_num;
+
+    cout << "\n\n\n";
+    //For private void retrievedata()
+    for (temp_num = start_num; temp_num <= end_num; temp_num++) {
+        cout << "SavedSettings =getSharedPreferences(\"save" << temp_num + 2 << "\", MODE_PRIVATE);" << endl;
+        cout << "if (" << "SavedSettings.getBoolean(\"value" << temp_num + 2 << "\",true)" << ") {" << endl;
+        cout << "listofsounds.add(" << temp_num + 2 << ");" << endl;
+        cout << "SoundBTN" << temp_num << ".setVisibility(View.VISIBLE);" << endl;
+        cout << "}else{" << endl;
+        cout << "SoundBTN" << temp_num << ".setVisibility(View.GONE);" << endl;
+        cout << "}" << endl;
+        cout << endl;
+    }
+
+    return_to_menu();
+}
+
+
+
+
+
 void return_to_main() {
     //Set answer to n to ensure the while loop isn't skipped
     answer = 'x';
@@ -934,20 +1046,29 @@ void exit_to_desktop() {
 
 
 // CODE FOR MainActivity Sub Menu
-void Sub_Menu1() {
+void MainActivity_SubMenu() {
 
     Sub_ExeCode = 0;    // To ensure Sub_ExeCode does not hold garbage data
     while (Sub_ExeCode != 177013) {
 
         switch (Sub_ExeCode) {
         case 1:
-            submenu1_1();
+            MainActivity_submenu1_1();
             break;
         case 2:
-            submenu1_2();
+            MainActivity_submenu1_2();
             break;
         case 3:
-            submenu1_3();
+            MainActivity_submenu1_3();
+            break;
+        case 4:
+            MainActivity_submenu1_4();
+            break;
+        case 5:
+            MainActivity_submenu1_5();
+            break;
+        case 6:
+            MainActivity_submenu1_6();
             break;
         case 98:
             return_to_main();
@@ -958,11 +1079,16 @@ void Sub_Menu1() {
         default:
             cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
             cout << "Select an option from menu :" << endl;
-            cout << "~~~~~~~~~~~~ (For startRandomSound()) ~~~~~~~~~~~~" << endl;
-            cout << "1.  Generate Audio switch statement" << endl;
+            cout << "~~~~~~~~~" << endl;
+            cout << "1.  Generate CardView Buttons" << endl;
+            cout << "~~~~~~~~~~~~ (For onCreate()) ~~~~~~~~~~~~" << endl;
+            cout << "2.  Generate Declare Cardview" << endl;
+            cout << "3.  Generate Cardview onClick" << endl;
+            cout << "~~~~~~~~~~~~ (For playSound(num)) ~~~~~~~~~~~~" << endl;
+            cout << "4.  Generate Audio switch statement" << endl;
             cout << "~~~~~~~~~~~~ (For retrievedata()) ~~~~~~~~~~~~" << endl;
-            cout << "2.  Generate Image switch statement" << endl;
-            cout << "3.  Generate Audio if statements" << endl;
+            cout << "5.  Generate Image switch statement" << endl;
+            cout << "6.  Generate Audio if statements" << endl;
             cout << "~~~~~~~~~" << endl;
             cout << "98.  Exit to Main Menu" << endl;
             cout << "99.  Exit to Desktop" << endl;
@@ -997,7 +1123,6 @@ void Sub_Menu2() {
             submenu2_5();
             break;
         case 6:
-            //submenu1_2() serves same purpose
             submenu2_6();
             break;
         case 98:
@@ -1164,6 +1289,7 @@ void Sub_Menu6() {
 }
 
 
+
 void About_Program() {
 
     cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
@@ -1221,7 +1347,7 @@ int main()
         
         switch (Main_ExeCode) {
         case 1:
-            Sub_Menu1();
+            MainActivity_SubMenu();
             break;
         case 2:
             Sub_Menu2();
@@ -1257,6 +1383,8 @@ int main()
             cout << "~~~~~~~~~~~~ (For Documentation) ~~~~~~~~~~~~" << endl;
             cout << "5.  Generate Release Documents" << endl;
             cout << "6.  Generate Legal Documents" << endl;
+            cout << "~~~~~~~~~~~~ (New UI) ~~~~~~~~~~~~" << endl;
+            cout << "7.  Generate code for New Home UI" << endl;
             cout << "~~~~~~~~~" << endl;
             cout << "98. About Program" << endl;
             cout << "99. Exit to Desktop" << endl;
