@@ -144,6 +144,9 @@
   <ItemGroup>
     <Text Include="file.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="VtuberNoises.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
