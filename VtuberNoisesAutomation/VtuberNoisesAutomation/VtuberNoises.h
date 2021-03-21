@@ -6,7 +6,6 @@
 using namespace std;
 
 int execution_code = 0;
-
 int Main_ExeCode = 0;   //Main Execution Code
 int Sub_ExeCode = 0;    //Sub  Execution Code
 char Main_ExeChar;      //Main Execution Character
@@ -217,18 +216,22 @@ int GET_audioEnd() {         //GET MP3 file Ending Number
     return AudioEnd;
 }
 int GET_imageStart() {       //GET Image file Starting Number
-
+    if (ImageStart == NULL) {
+        SET_imageStart();
+    }
     return ImageStart;
 }
 int GET_imageEnd() {         //GET Image file Ending Number
-
+    if (ImageEnd == NULL) {
+        SET_imageEnd();
+    }
     return ImageEnd;
 }
 
 
 
 //ClickerSettings.Java FUNCTIONS
-void submenu2_1() {
+void ClickerSettings_1() {
     cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
@@ -236,24 +239,54 @@ void submenu2_1() {
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
     cout << endl;
 
-    //Prompt user for the starting and ending number of the noises
-    cout << "Enter the starting number for the noises : ";
-    cin >> start_num;
-    cout << "Enter the ending number for the noises : ";
-    cin >> end_num;
+    int AudioSTART;
+    int AudioEND;
+    int AudioTEMP = 0;
+    char exe_char = 'x';
 
-    cout << "\n\n\n";
+    while (exe_char != 'O') {
+        switch (exe_char)
+        {
+        case 'y':
+            exe_char = 'Y';
+            break;
+        case 'Y':
+            SET_audioStart();
+            SET_audioEnd();
+            exe_char = 'x';
+            break;
+        case 'N':
+            exe_char = 'n';
+            break;
+        case 'n':
+            exe_char = 'O';
+            break;
+        default:
+            //Prompt user for the starting and ending number of the noises
+            DisplayBlankLines(3);
+            AudioSTART = GET_audioStart();
+            AudioEND = GET_audioEnd();
+            DisplayBlankLines(3);
+            cout << "MP3 Starting Number: " << AudioSTART << endl;
+            cout << "MP3 Ending Number: " << AudioEND << endl;
+            cout << "Would you like to change these values? (Y/n)";
+            cin >> exe_char;
+            DisplayBlankLines(3);
+            break;
+        }
+    }
+    DisplayBlankLines(10);
 
 
     //Declare variable for ClickerSettings.Java
-    for (temp_num = start_num; temp_num <= end_num; temp_num++) {
-        cout << "Switch switch" << temp_num + 2 << ";" << endl;
+    for (AudioTEMP = AudioSTART; AudioTEMP <= AudioEND; AudioTEMP++) {
+        cout << "Switch switch" << AudioTEMP + 2 << ";" << endl;
     }
 
     return_to_menu();
 
 }
-void submenu2_2() {
+void ClickerSettings_2() {
     cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
@@ -261,33 +294,59 @@ void submenu2_2() {
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
     cout << endl;
 
-    int startIMG_num;
-    int endIMG_num;
-    int tempIMG_num;
-    int tempIMG_num2;
-    string Vtuber;
+    int ImageSTART;
+    int ImageEND;
+    int ImageTEMP;
+    string vtuberFN;
+    char exe_char = 'x';
 
-    cout << "Enter starting number for IMG :";
-    cin >> startIMG_num;
-    cout << "Enter ending number for IMG :";
-    cin >> endIMG_num;
-    cout << "Enter Vtuber name (1st letter caps) :";
-    cin >> Vtuber;
+    while (exe_char != 'O') {
+        switch (exe_char)
+        {
+        case 'y':
+            exe_char = 'Y';
+            break;
+        case 'Y':
+            SET_imageStart();
+            SET_imageEnd();
+            SET_vtuberFN();
+            exe_char = 'x';
+            break;
+        case 'N':
+            exe_char = 'n';
+            break;
+        case 'n':
+            exe_char = 'O';
+            break;
+        default:
+            //Prompt user for the starting and ending number of the noises
+            DisplayBlankLines(3);
+            ImageSTART = GET_imageStart();
+            ImageEND = GET_imageEnd();
+            vtuberFN = GET_vtuberFN();
+            DisplayBlankLines(3);
+            cout << "Image Starting Number: " << ImageSTART << endl;
+            cout << "Image Ending Number: " << ImageEND << endl;
+            cout << "Vtuber First Name: " << vtuberFN << endl;
+            cout << "Would you like to change these values? (Y/n)";
+            cin >> exe_char;
+            DisplayBlankLines(3);
+            break;
+        }
+    }
+    DisplayBlankLines(10);
 
-    cout << endl;
-    cout << endl;
-
-    for (tempIMG_num = startIMG_num; tempIMG_num <= endIMG_num; tempIMG_num++) {
+    for (ImageTEMP = ImageSTART; ImageTEMP <= ImageEND; ImageTEMP++) {
 
         cout << "TableRow ";
-        cout << Vtuber << "IMG" << tempIMG_num << "Row;" << endl;
+        cout << vtuberFN << "IMG" << ImageTEMP << "Row;" << endl;
 
     }
 
-    for (tempIMG_num = startIMG_num; tempIMG_num <= endIMG_num; tempIMG_num++) {
+    for (ImageTEMP = ImageSTART; ImageTEMP <= ImageEND; ImageTEMP++) {
 
         cout << "RadioButton ";
-        cout << Vtuber << "IMG" << tempIMG_num << ";" << endl;
+        cout << vtuberFN << "IMG" << ImageTEMP << ";" << endl;
 
     }
 
@@ -522,17 +581,17 @@ void submenu2_6() {
 
 
 }
-void Sub_Menu2() {
+void ClickerSettings_SubMenu() {
 
     Sub_ExeCode = 0;    // To ensure Sub_ExeCode does not hold garbage data
     while (Sub_ExeCode != 177013) {
 
         switch (Sub_ExeCode) {
         case 1:
-            submenu2_1();
+            ClickerSettings_1();
             break;
         case 2:
-            submenu2_2();
+            ClickerSettings_2();
             break;
         case 3:
             submenu2_3();
@@ -958,6 +1017,7 @@ void MainActivity_1() {
             DisplayBlankLines(3);
             AudioSTART = GET_audioStart();
             AudioEND = GET_audioEnd();
+            DisplayBlankLines(3);
             cout << "MP3 Starting Number: " << AudioSTART << endl;
             cout << "MP3 Ending Number: " << AudioEND << endl;
             cout << "Would you like to change these values? (Y/n)";
@@ -1029,6 +1089,7 @@ void MainActivity_2() {
             DisplayBlankLines(3);
             AudioSTART = GET_audioStart();
             AudioEND = GET_audioEnd();
+            DisplayBlankLines(3);
             cout << "MP3 Starting Number: " << AudioSTART << endl;
             cout << "MP3 Ending Number: " << AudioEND << endl;
             cout << "Would you like to change these values? (Y/n)";
@@ -1080,6 +1141,7 @@ void MainActivity_3() {
             DisplayBlankLines(3);
             AudioSTART = GET_audioStart();
             AudioEND = GET_audioEnd();
+            DisplayBlankLines(3);
             cout << "MP3 Starting Number: " << AudioSTART << endl;
             cout << "MP3 Ending Number: " << AudioEND << endl;
             cout << "Would you like to change these values? (Y/n)";
@@ -1141,6 +1203,7 @@ void MainActivity_4() {
             vtuberFN = GET_vtuberFN_LC();
             AudioSTART = GET_audioStart();
             AudioEND = GET_audioEnd();
+            DisplayBlankLines(3);
             cout << "Vtuber First Name: " << vtuberFN << endl;
             cout << "MP3 Starting Number: " << AudioSTART << endl;
             cout << "MP3 Ending Number: " << AudioEND << endl;
@@ -1205,12 +1268,13 @@ void MainActivity_5() {
         default:
             //Prompt user for the starting and ending number of the noises
             DisplayBlankLines(3);
-            vtuberFN = GET_vtuberFN_LC();
             ImageSTART = GET_audioStart();
             ImageEND = GET_audioEnd();
-            cout << "Vtuber First Name: " << vtuberFN << endl;
+            vtuberFN = GET_vtuberFN_LC();
+            DisplayBlankLines(3);
             cout << "MP3 Starting Number: " << ImageSTART << endl;
             cout << "MP3 Ending Number: " << ImageEND << endl;
+            cout << "Vtuber First Name: " << vtuberFN << endl;
             cout << "Would you like to change these values? (Y/n)";
             cin >> exe_char;
             DisplayBlankLines(3);
@@ -1243,9 +1307,9 @@ void MainActivity_6() {
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
     cout << endl;
 
-    int AudioSTART;
-    int AudioEND;
-    int AudioTEMP = 0;
+    int ImageSTART;
+    int ImageEND;
+    int ImageTEMP = 0;
     char exe_char = 'x';
 
     while (exe_char != 'O') {
@@ -1268,10 +1332,11 @@ void MainActivity_6() {
         default:
             //Prompt user for the starting and ending number of the noises
             DisplayBlankLines(3);
-            AudioSTART = GET_audioStart();
-            AudioEND = GET_audioEnd();
-            cout << "MP3 Starting Number: " << AudioSTART << endl;
-            cout << "MP3 Ending Number: " << AudioEND << endl;
+            ImageSTART = GET_audioStart();
+            ImageEND = GET_audioEnd();
+            DisplayBlankLines(3);
+            cout << "Image Starting Number: " << ImageSTART << endl;
+            cout << "Image Ending Number: " << ImageEND << endl;
             cout << "Would you like to change these values? (Y/n)";
             cin >> exe_char;
             DisplayBlankLines(3);
@@ -1281,13 +1346,13 @@ void MainActivity_6() {
 
     DisplayBlankLines(3);
     //For private void retrievedata()
-    for (AudioTEMP = AudioSTART; AudioTEMP <= AudioEND; AudioTEMP++) {
-        cout << "SavedSettings =getSharedPreferences(\"save" << AudioTEMP + 2 << "\", MODE_PRIVATE);" << endl;
-        cout << "if (" << "SavedSettings.getBoolean(\"value" << AudioTEMP + 2 << "\",false)" << ") {" << endl;
-        cout << "listofsounds.add(" << AudioTEMP + 2 << ");" << endl;
-        cout << "SoundBTN" << AudioTEMP << ".setVisibility(View.VISIBLE);" << endl;
+    for (ImageTEMP = ImageSTART; ImageTEMP <= ImageEND; ImageTEMP++) {
+        cout << "SavedSettings =getSharedPreferences(\"save" << ImageTEMP + 2 << "\", MODE_PRIVATE);" << endl;
+        cout << "if (" << "SavedSettings.getBoolean(\"value" << ImageTEMP + 2 << "\",false)" << ") {" << endl;
+        cout << "listofsounds.add(" << ImageTEMP + 2 << ");" << endl;
+        cout << "SoundBTN" << ImageTEMP << ".setVisibility(View.VISIBLE);" << endl;
         cout << "}else{" << endl;
-        cout << "SoundBTN" << AudioTEMP << ".setVisibility(View.GONE);" << endl;
+        cout << "SoundBTN" << ImageTEMP << ".setVisibility(View.GONE);" << endl;
         cout << "}" << endl;
         cout << endl;
     }
@@ -1325,7 +1390,7 @@ void MainActivity_SubMenu() {
             exit_to_desktop();
             break;
         default:
-            cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+            DisplayBlankLines(20);
             cout << "Select an option from menu :" << endl;
             cout << "~~~~~~~~~" << endl;
             cout << "1.  Generate CardView Buttons" << endl;
@@ -1346,4 +1411,61 @@ void MainActivity_SubMenu() {
         }
     }
 
+}
+
+//Vtuber Noises Automation Main Menu
+void VNA_MainMenu() {
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+    cout << "Vtuber Noises C++ Automation Program" << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+    cout << "By: YuzuMin" << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+    cout << endl;
+
+    Main_ExeCode = 0; //To ensure Main_Execode does not hold garbage data
+
+    while (Main_ExeCode != 177013) {
+
+        switch (Main_ExeCode) {
+        case 1:
+            MainActivity_SubMenu();
+            break;
+        case 2:
+            ClickerSettings_SubMenu();
+            break;
+        case 3:
+            Sub_Menu3();
+            break;
+        case 4:
+            Sub_Menu4();
+            break;
+        case 5:
+            Sub_Menu5();
+            break;
+        case 98:
+            About_Program();
+            break;
+        case 99:
+            exit_to_desktop();
+            break;
+        case 85130:
+
+            break;
+        default:
+            cout << "Select an option from menu :" << endl;
+            cout << "~~~~~~~~~" << endl;
+            cout << "1.  Generate code for MainActivity.Java" << endl;
+            cout << "2.  Generate code for ClickerSettings.Java" << endl;
+            cout << "3.  Generate code for clicker_settings.xml" << endl;
+            cout << "4.  Generate text for strings.xml" << endl;
+            cout << "~~~~~~~~~~~~ (For Documentation) ~~~~~~~~~~~~" << endl;
+            cout << "5.  Generate Release Documents" << endl;
+            cout << "~~~~~~~~~" << endl;
+            cout << "98. About Program" << endl;
+            cout << "99. Exit to Desktop" << endl;
+
+            cin >> Main_ExeCode;
+            break;
+        }
+    }
 }
