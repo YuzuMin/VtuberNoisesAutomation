@@ -5,19 +5,24 @@
 #include <algorithm>
 using namespace std;
 
-int execution_code = 0;
-int Main_ExeCode = 0;   //Main Execution Code
-int Sub_ExeCode = 0;    //Sub  Execution Code
-char Main_ExeChar;      //Main Execution Character
+//Program Details
+string DevName = "YuzuMin";
+string VersionName = "2021.3 REV-1";
+unsigned int VersionCode = 1;
 
+//Program Execution (WARNING : DO NOT REMOVE OR MODIFY)
+unsigned int execution_code = 0;
+unsigned int Main_ExeCode = 0;   //Main Execution Code
+unsigned int Sub_ExeCode = 0;    //Sub  Execution Code
+unsigned char Main_ExeChar;      //Main Execution Character
 
-
+//VTUBER DATA
 string VtuberFN;
 string VtuberLN;
-int AudioStart;
-int AudioEnd;
-int ImageStart;
-int ImageEnd;
+unsigned int AudioStart;
+unsigned int AudioEnd;
+unsigned int ImageStart;
+unsigned int ImageEnd;
 
 
 
@@ -29,13 +34,9 @@ int end_num;            //The last number of the (vtuber)noises mp3 file
 int temp_num;
 string vtuber;          //For Vtuber Name (vtuber)noises
 
-//IMPORTANT FUNCTIONS 
-//DO NOT MODIFY 
-void DisplayBlankLines(int NumberOfLines) {
-    //Prints Blank lines 
-    for (int i = 0; i < NumberOfLines; i++) {
-        cout << endl;
-    }
+//IMPORTANT FUNCTIONS (WARNING : DO NOT REMOVE OR MODIFY)
+void ClearConsole() {
+    system("cls");
 }
 void return_to_menu() {
     //Set answer to n to ensure the while loop isn't skipped
@@ -87,7 +88,7 @@ void return_to_main() {
             cin >> Main_ExeChar;
         }
     }
-    DisplayBlankLines(20);
+    ClearConsole();
 }
 void exit_to_desktop() {
     //Set answer to n to ensure the while loop isn't skipped
@@ -120,13 +121,13 @@ void exit_to_desktop() {
             cin >> Main_ExeChar;
         }
     }
-    DisplayBlankLines(20);
+    ClearConsole();
 }
 
 //MISC FUNCTIONS
 void About_Program() {
 
-    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    ClearConsole();
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
     cout << "Vtuber Noises C++ Automation Program" << endl;
@@ -142,10 +143,18 @@ void About_Program() {
     Main_ExeCode = 0;
 
     return_to_menu();
-    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    ClearConsole();
+}
+void Program_Splash() {
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+    cout << "Vtuber Noises C++ Automation Program" << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+    cout << "By: YuzuMin" << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+    cout << endl;
 }
 
-//DATA HANDLER FUNCTIONS
+//VTUBER DATA HANDLER FUNCTIONS
 //VtuberNoises SET Functions
 void SET_vtuberFN() {        //SET Vtuber's First Name
     cout << "Enter Vtuber First Name (Tokino): ";
@@ -239,10 +248,10 @@ void ClickerSettings_1() {
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
     cout << endl;
 
-    int AudioSTART;
-    int AudioEND;
-    int AudioTEMP = 0;
-    char exe_char = 'x';
+    unsigned int AudioSTART;
+    unsigned int AudioEND;
+    unsigned int AudioTEMP = 0;
+    unsigned char exe_char = 'x';
 
     while (exe_char != 'O') {
         switch (exe_char)
@@ -263,19 +272,19 @@ void ClickerSettings_1() {
             break;
         default:
             //Prompt user for the starting and ending number of the noises
-            DisplayBlankLines(3);
+            ClearConsole();
             AudioSTART = GET_audioStart();
             AudioEND = GET_audioEnd();
-            DisplayBlankLines(3);
+            ClearConsole();
             cout << "MP3 Starting Number: " << AudioSTART << endl;
             cout << "MP3 Ending Number: " << AudioEND << endl;
             cout << "Would you like to change these values? (Y/n)";
             cin >> exe_char;
-            DisplayBlankLines(3);
+            ClearConsole();
             break;
         }
     }
-    DisplayBlankLines(10);
+    ClearConsole();
 
 
     //Declare variable for ClickerSettings.Java
@@ -294,11 +303,11 @@ void ClickerSettings_2() {
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
     cout << endl;
 
-    int ImageSTART;
-    int ImageEND;
-    int ImageTEMP;
+    unsigned int ImageSTART;
+    unsigned int ImageEND;
+    unsigned int ImageTEMP;
     string vtuberFN;
-    char exe_char = 'x';
+    unsigned char exe_char = 'x';
 
     while (exe_char != 'O') {
         switch (exe_char)
@@ -320,21 +329,21 @@ void ClickerSettings_2() {
             break;
         default:
             //Prompt user for the starting and ending number of the noises
-            DisplayBlankLines(3);
+            ClearConsole();
             ImageSTART = GET_imageStart();
             ImageEND = GET_imageEnd();
             vtuberFN = GET_vtuberFN();
-            DisplayBlankLines(3);
+            ClearConsole();
             cout << "Image Starting Number: " << ImageSTART << endl;
             cout << "Image Ending Number: " << ImageEND << endl;
             cout << "Vtuber First Name: " << vtuberFN << endl;
             cout << "Would you like to change these values? (Y/n)";
             cin >> exe_char;
-            DisplayBlankLines(3);
+            ClearConsole();
             break;
         }
     }
-    DisplayBlankLines(10);
+    ClearConsole();
 
     for (ImageTEMP = ImageSTART; ImageTEMP <= ImageEND; ImageTEMP++) {
 
@@ -983,17 +992,17 @@ void Sub_Menu5() {
 
 //MainActivity.Java FUNCTIONS
 void MainActivity_1() {
-    DisplayBlankLines(20);
+    ClearConsole();
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
     cout << "For Audio Buttons in activity_main0.xml \n";
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
     cout << endl;
 
-    int AudioSTART;
-    int AudioEND;
-    int AudioTEMP = 0;
-    char exe_char = 'x';
+    unsigned int AudioSTART;
+    unsigned int AudioEND;
+    unsigned int AudioTEMP = 0;
+    unsigned char exe_char = 'x';
 
     while (exe_char != 'O') {
         switch (exe_char)
@@ -1014,20 +1023,20 @@ void MainActivity_1() {
             break;
         default:
             //Prompt user for the starting and ending number of the noises
-            DisplayBlankLines(3);
+            ClearConsole();
             AudioSTART = GET_audioStart();
             AudioEND = GET_audioEnd();
-            DisplayBlankLines(3);
+            ClearConsole();
             cout << "MP3 Starting Number: " << AudioSTART << endl;
             cout << "MP3 Ending Number: " << AudioEND << endl;
             cout << "Would you like to change these values? (Y/n)";
             cin >> exe_char;
-            DisplayBlankLines(3);
+            ClearConsole();
             break;
         }
     }
 
-    DisplayBlankLines(10);
+    ClearConsole();
 
     for (AudioTEMP = AudioSTART; AudioTEMP <= AudioEND; AudioTEMP++) {
         cout << "<androidx.cardview.widget.CardView" << endl;
@@ -1055,17 +1064,17 @@ void MainActivity_1() {
     return_to_menu();
 }
 void MainActivity_2() {
-    DisplayBlankLines(20);
+    ClearConsole();
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
     cout << "To declare CardView in MainActivity.xml \n";
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
     cout << endl;
 
-    int AudioSTART;
-    int AudioEND;
-    int AudioTEMP = 0;
-    char exe_char = 'x';
+    unsigned int AudioSTART;
+    unsigned int AudioEND;
+    unsigned int AudioTEMP = 0;
+    unsigned char exe_char = 'x';
 
     while (exe_char != 'O') {
         switch (exe_char)
@@ -1086,20 +1095,20 @@ void MainActivity_2() {
             break;
         default:
             //Prompt user for the starting and ending number of the noises
-            DisplayBlankLines(3);
+            ClearConsole();
             AudioSTART = GET_audioStart();
             AudioEND = GET_audioEnd();
-            DisplayBlankLines(3);
+            ClearConsole();
             cout << "MP3 Starting Number: " << AudioSTART << endl;
             cout << "MP3 Ending Number: " << AudioEND << endl;
             cout << "Would you like to change these values? (Y/n)";
             cin >> exe_char;
-            DisplayBlankLines(3);
+            ClearConsole();
             break;
         }
     }
 
-    DisplayBlankLines(3);
+    ClearConsole();
     for (AudioTEMP = AudioSTART; AudioTEMP <= AudioEND; AudioTEMP++) {
         cout << "CardView SoundBTN" << AudioTEMP << ";" << endl;
     }
@@ -1107,17 +1116,17 @@ void MainActivity_2() {
     return_to_menu();
 }
 void MainActivity_3() {
-    DisplayBlankLines(20);
+    ClearConsole();
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
     cout << "To setup CardView in MainActivity0.xml \n";
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
     cout << endl;
 
-    int AudioSTART;
-    int AudioEND;
-    int AudioTEMP = 0;
-    char exe_char = 'x';
+    unsigned int AudioSTART;
+    unsigned int AudioEND;
+    unsigned int AudioTEMP = 0;
+    unsigned char exe_char = 'x';
 
     while (exe_char != 'O') {
         switch (exe_char)
@@ -1138,20 +1147,20 @@ void MainActivity_3() {
             break;
         default:
             //Prompt user for the starting and ending number of the noises
-            DisplayBlankLines(3);
+            ClearConsole();
             AudioSTART = GET_audioStart();
             AudioEND = GET_audioEnd();
-            DisplayBlankLines(3);
+            ClearConsole();
             cout << "MP3 Starting Number: " << AudioSTART << endl;
             cout << "MP3 Ending Number: " << AudioEND << endl;
             cout << "Would you like to change these values? (Y/n)";
             cin >> exe_char;
-            DisplayBlankLines(3);
+            ClearConsole();
             break;
         }
     }
 
-    DisplayBlankLines(3);
+    ClearConsole();
     for (AudioTEMP = AudioSTART; AudioTEMP <= AudioEND; AudioTEMP++) {
         cout << "SoundBTN" << AudioTEMP << "=findViewById(R.id.sound" << AudioTEMP << ");" << endl;
         cout << "SoundBTN" << AudioTEMP << ".setVisibility(View.GONE);" << endl;
@@ -1166,7 +1175,7 @@ void MainActivity_3() {
     return_to_menu();
 }
 void MainActivity_4() {
-    DisplayBlankLines(20);
+    ClearConsole();
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
     cout << "To add switch statements in private void playSound(num) \n";
@@ -1174,10 +1183,10 @@ void MainActivity_4() {
     cout << endl;
 
     string vtuberFN;
-    int AudioSTART;
-    int AudioEND;
-    int AudioTEMP = 0;
-    char exe_char = 'x';
+    unsigned int AudioSTART;
+    unsigned int AudioEND;
+    unsigned int AudioTEMP = 0;
+    unsigned char exe_char = 'x';
 
     while (exe_char != 'O') {
         switch (exe_char)
@@ -1199,22 +1208,22 @@ void MainActivity_4() {
             break;
         default:
             //Prompt user for the starting and ending number of the noises
-            DisplayBlankLines(3);
+            ClearConsole();
             vtuberFN = GET_vtuberFN_LC();
             AudioSTART = GET_audioStart();
             AudioEND = GET_audioEnd();
-            DisplayBlankLines(3);
+            ClearConsole();
             cout << "Vtuber First Name: " << vtuberFN << endl;
             cout << "MP3 Starting Number: " << AudioSTART << endl;
             cout << "MP3 Ending Number: " << AudioEND << endl;
             cout << "Would you like to change these values? (Y/n)";
             cin >> exe_char;
-            DisplayBlankLines(3);
+            ClearConsole();
             break;
         }
     }
 
-    DisplayBlankLines(3);
+    ClearConsole();
     cout << "switch (num) {" << endl;
     for (AudioTEMP = AudioSTART; AudioTEMP <= AudioEND; AudioTEMP++) {
         cout << "case " << AudioTEMP + 2 << ":" << endl;
@@ -1235,7 +1244,7 @@ void MainActivity_4() {
     return_to_menu();
 }
 void MainActivity_5() {
-    DisplayBlankLines(20);
+    ClearConsole();
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
     cout << "To add switch statement in private void retrievedata() \n";
@@ -1243,10 +1252,10 @@ void MainActivity_5() {
     cout << endl;
 
     string vtuberFN;
-    int ImageSTART;
-    int ImageEND;
-    int ImageTEMP = 0;
-    char exe_char = 'x';
+    unsigned int ImageSTART;
+    unsigned int ImageEND;
+    unsigned int ImageTEMP = 0;
+    unsigned char exe_char = 'x';
 
     while (exe_char != 'O') {
         switch (exe_char)
@@ -1267,22 +1276,22 @@ void MainActivity_5() {
             break;
         default:
             //Prompt user for the starting and ending number of the noises
-            DisplayBlankLines(3);
+            ClearConsole();
             ImageSTART = GET_audioStart();
             ImageEND = GET_audioEnd();
             vtuberFN = GET_vtuberFN_LC();
-            DisplayBlankLines(3);
+            ClearConsole();
             cout << "MP3 Starting Number: " << ImageSTART << endl;
             cout << "MP3 Ending Number: " << ImageEND << endl;
             cout << "Vtuber First Name: " << vtuberFN << endl;
             cout << "Would you like to change these values? (Y/n)";
             cin >> exe_char;
-            DisplayBlankLines(3);
+            ClearConsole();
             break;
         }
     }
 
-    DisplayBlankLines(3);
+    ClearConsole();
 
     cout << "switch (charavalue) {" << endl;
     for (ImageTEMP = ImageSTART; ImageTEMP <= ImageEND; ImageTEMP++) {
@@ -1300,17 +1309,17 @@ void MainActivity_5() {
     return_to_menu();
 }
 void MainActivity_6() {
-    DisplayBlankLines(20);
+    ClearConsole();
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
     cout << "To add if statements in private void retrievedata() \n";
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
     cout << endl;
 
-    int ImageSTART;
-    int ImageEND;
-    int ImageTEMP = 0;
-    char exe_char = 'x';
+    unsigned int ImageSTART;
+    unsigned int ImageEND;
+    unsigned int ImageTEMP = 0;
+    unsigned char exe_char = 'x';
 
     while (exe_char != 'O') {
         switch (exe_char)
@@ -1331,20 +1340,20 @@ void MainActivity_6() {
             break;
         default:
             //Prompt user for the starting and ending number of the noises
-            DisplayBlankLines(3);
+            ClearConsole();
             ImageSTART = GET_audioStart();
             ImageEND = GET_audioEnd();
-            DisplayBlankLines(3);
+            ClearConsole();
             cout << "Image Starting Number: " << ImageSTART << endl;
             cout << "Image Ending Number: " << ImageEND << endl;
             cout << "Would you like to change these values? (Y/n)";
             cin >> exe_char;
-            DisplayBlankLines(3);
+            ClearConsole();
             break;
         }
     }
 
-    DisplayBlankLines(3);
+    ClearConsole();
     //For private void retrievedata()
     for (ImageTEMP = ImageSTART; ImageTEMP <= ImageEND; ImageTEMP++) {
         cout << "SavedSettings =getSharedPreferences(\"save" << ImageTEMP + 2 << "\", MODE_PRIVATE);" << endl;
@@ -1390,7 +1399,7 @@ void MainActivity_SubMenu() {
             exit_to_desktop();
             break;
         default:
-            DisplayBlankLines(20);
+            ClearConsole();
             cout << "Select an option from menu :" << endl;
             cout << "~~~~~~~~~" << endl;
             cout << "1.  Generate CardView Buttons" << endl;
@@ -1415,12 +1424,7 @@ void MainActivity_SubMenu() {
 
 //Vtuber Noises Automation Main Menu
 void VNA_MainMenu() {
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-    cout << "Vtuber Noises C++ Automation Program" << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-    cout << "By: YuzuMin" << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-    cout << endl;
+    Program_Splash();
 
     Main_ExeCode = 0; //To ensure Main_Execode does not hold garbage data
 
