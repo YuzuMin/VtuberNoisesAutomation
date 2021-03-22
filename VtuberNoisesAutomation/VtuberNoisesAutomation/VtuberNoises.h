@@ -245,7 +245,6 @@ int GET_imageEnd() {         //GET Image file Ending Number
 
 
 
-
 //Program Sub Menus and Functions (WARNING: DO NOT MODIFY UNNECESSARILY)
 
 //MainActivity.Java FUNCTIONS
@@ -1566,7 +1565,6 @@ void ReleaseDoc_SubMenu() {
         }
     }
 }
-
 
 //Vtuber Noises Automation Main Menu
 void VNA_MainMenu() {
