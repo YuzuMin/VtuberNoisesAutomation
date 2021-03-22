@@ -1,3 +1,8 @@
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <unistd.h>
+#endif
 
 #include <iostream>
 #include <string>
@@ -124,6 +129,7 @@ void exit_to_desktop() {
     ClearConsole();
 }
 
+
 //MISC FUNCTIONS
 void About_Program() {
 
@@ -149,10 +155,24 @@ void Program_Splash() {
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
     cout << "Vtuber Noises C++ Automation Program" << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+    cout << "Version: " << VersionName << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+    cout << endl;
+
+    Sleep(500);
+    ClearConsole();
+
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+    cout << "Vtuber Noises C++ Automation Program" << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
     cout << "By: " << DevName << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
     cout << endl;
+
+    Sleep(500);
+    ClearConsole();
 }
+
 
 //VTUBER DATA HANDLER FUNCTIONS
 //VtuberNoises SET Functions
@@ -236,7 +256,6 @@ int GET_imageEnd() {         //GET Image file Ending Number
     }
     return ImageEnd;
 }
-
 
 
 //ClickerSettings.Java FUNCTIONS
@@ -440,7 +459,7 @@ void ClickerSettings_3() {
     return_to_menu();
 
 }
-void submenu2_4() {
+void ClickerSettings_4() {
     cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
@@ -448,13 +467,43 @@ void submenu2_4() {
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
     cout << endl;
 
-    //Prompt user for the starting and ending number of the noises
-    cout << "Enter the starting number for the noises : ";
-    cin >> start_num;
-    cout << "Enter the ending number for the noises : ";
-    cin >> end_num;
+    unsigned int AudioSTART;
+    unsigned int AudioEND;
+    unsigned int AudioTEMP = 0;
+    unsigned char exe_char = 'x';
 
-    cout << "\n\n\n";
+    while (exe_char != 'O') {
+        switch (exe_char)
+        {
+        case 'y':
+            exe_char = 'Y';
+            break;
+        case 'Y':
+            SET_audioStart();
+            SET_audioEnd();
+            exe_char = 'x';
+            break;
+        case 'N':
+            exe_char = 'n';
+            break;
+        case 'n':
+            exe_char = 'O';
+            break;
+        default:
+            //Prompt user for the starting and ending number of the noises
+            ClearConsole();
+            AudioSTART = GET_audioStart();
+            AudioEND = GET_audioEnd();
+            ClearConsole();
+            cout << "MP3 Starting Number: " << AudioSTART << endl;
+            cout << "MP3 Ending Number: " << AudioEND << endl;
+            cout << "Would you like to change these values? (Y/n)";
+            cin >> exe_char;
+            ClearConsole();
+            break;
+        }
+    }
+    ClearConsole();
 
 
     cout << "toggle_btn=findViewById(R.id.toggle_btn);" << endl;
@@ -463,34 +512,30 @@ void submenu2_4() {
     cout << "public void onClick(View v) {" << endl;
     cout << "if(switch3.isChecked()&&switch4.isChecked()){" << endl;
     cout << endl;
-    for (temp_num = start_num; temp_num <= end_num; temp_num++) {
+    for (AudioTEMP = AudioSTART; AudioTEMP <= AudioEND; AudioTEMP++) {
 
-        cout << "SoundSettingsEditor =getSharedPreferences(\"save" << temp_num + 2 << "\",MODE_PRIVATE).edit();" << endl;
-        cout << "SoundSettingsEditor.putBoolean(\"value" << temp_num + 2 << "\",false);" << endl;
+        cout << "SoundSettingsEditor =getSharedPreferences(\"save" << AudioTEMP + 2 << "\",MODE_PRIVATE).edit();" << endl;
+        cout << "SoundSettingsEditor.putBoolean(\"value" << AudioTEMP + 2 << "\",false);" << endl;
         cout << "SoundSettingsEditor.apply();" << endl;
-        cout << "switch" << temp_num + 2 << ".setChecked(false);" << endl;
+        cout << "switch" << AudioTEMP + 2 << ".setChecked(false);" << endl;
         cout << endl;
     }
 
     cout << "}else{" << endl;
 
     cout << endl;
-    for (temp_num = start_num; temp_num <= end_num; temp_num++) {
+    for (AudioTEMP = AudioSTART; AudioTEMP <= AudioEND; AudioTEMP++) {
 
-        cout << "SoundSettingsEditor =getSharedPreferences(\"save" << temp_num + 2 << "\",MODE_PRIVATE).edit();" << endl;
-        cout << "SoundSettingsEditor.putBoolean(\"value" << temp_num + 2 << "\",true);" << endl;
+        cout << "SoundSettingsEditor =getSharedPreferences(\"save" << AudioTEMP + 2 << "\",MODE_PRIVATE).edit();" << endl;
+        cout << "SoundSettingsEditor.putBoolean(\"value" << AudioTEMP + 2 << "\",true);" << endl;
         cout << "SoundSettingsEditor.apply();" << endl;
-        cout << "switch" << temp_num + 2 << ".setChecked(true);" << endl;
+        cout << "switch" << AudioTEMP + 2 << ".setChecked(true);" << endl;
         cout << endl;
 
     }
-
-
     cout << "}" << endl;
     cout << "}" << endl;
     cout << "});" << endl;
-
-
 
     return_to_menu();
 }
@@ -636,7 +681,7 @@ void ClickerSettings_SubMenu() {
             ClickerSettings_3();
             break;
         case 4:
-            submenu2_4();
+            ClickerSettings_4();
             break;
         case 5:
             submenu2_5();
