@@ -13,6 +13,7 @@ using namespace std;
 //Program Details
 string DevName = "YuzuMin";
 string VersionName = "2021.3 REV-1";
+string ReleaseType = "Nightly";
 unsigned int VersionCode = 1;
 
 //Program Execution (WARNING : DO NOT REMOVE OR MODIFY)
@@ -20,15 +21,6 @@ unsigned int execution_code = 0;
 unsigned int Main_ExeCode = 0;   //Main Execution Code
 unsigned int Sub_ExeCode = 0;    //Sub  Execution Code
 unsigned char Main_ExeChar;      //Main Execution Character
-
-//VTUBER DATA
-string VtuberFN;
-string VtuberLN;
-unsigned int AudioStart;
-unsigned int AudioEnd;
-unsigned int ImageStart;
-unsigned int ImageEnd;
-
 
 
 //IMPORTANT FUNCTIONS (WARNING : DO NOT REMOVE OR MODIFY)
@@ -121,25 +113,21 @@ void exit_to_desktop() {
     ClearConsole();
 }
 
-
 //MISC FUNCTIONS
 void About_Program() {
-
     ClearConsole();
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
     cout << "Vtuber Noises C++ Automation Program" << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-    cout << "By: YuzuMin" << endl;
+    cout << "By: " << DevName <<endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
     cout << endl;
-    cout << "Release Type : Rolling Release" << endl;
-    cout << "Release Type : Beta Debug" << endl;
-    cout << "Version Code : 2021-0225" << endl;
-    cout << "Version Name : Beta Beaver" << endl;
+    cout << "Release Type : " << ReleaseType << endl;
+    cout << "Version Code : " << VersionCode << endl;
+    cout << "Version Name : " << VersionName << endl;
 
     Main_ExeCode = 0;
-
     return_to_menu();
     ClearConsole();
 }
@@ -165,8 +153,14 @@ void Program_Splash() {
     ClearConsole();
 }
 
-
-//VTUBER DATA HANDLER FUNCTIONS
+//VTUBER DATA
+string VtuberFN;
+string VtuberLN;
+unsigned int AudioStart;
+unsigned int AudioEnd;
+unsigned int ImageStart;
+unsigned int ImageEnd;
+//VTUBER DATA HANDLER 
 //VtuberNoises SET Functions
 void SET_vtuberFN() {        //SET Vtuber's First Name
     cout << "Enter Vtuber First Name (Amelia): ";
@@ -257,11 +251,6 @@ int GET_imageEnd() {         //GET Image file Ending Number
 //MainActivity.Java FUNCTIONS
 void MainActivity_1() {
     ClearConsole();
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << "For Audio Buttons in activity_main0.xml \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << endl;
 
     unsigned int AudioSTART;
     unsigned int AudioEND;
@@ -329,11 +318,6 @@ void MainActivity_1() {
 }
 void MainActivity_2() {
     ClearConsole();
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << "To declare CardView in MainActivity.xml \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << endl;
 
     unsigned int AudioSTART;
     unsigned int AudioEND;
@@ -381,11 +365,6 @@ void MainActivity_2() {
 }
 void MainActivity_3() {
     ClearConsole();
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << "To setup CardView in MainActivity0.xml \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << endl;
 
     unsigned int AudioSTART;
     unsigned int AudioEND;
@@ -440,11 +419,6 @@ void MainActivity_3() {
 }
 void MainActivity_4() {
     ClearConsole();
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << "To add switch statements in private void playSound(num) \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << endl;
 
     string vtuberFN_LC;
     unsigned int AudioSTART;
@@ -509,11 +483,6 @@ void MainActivity_4() {
 }
 void MainActivity_5() {
     ClearConsole();
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << "To add switch statement in private void retrievedata() \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << endl;
 
     string vtuberFN_LC;
     unsigned int ImageSTART;
@@ -574,11 +543,6 @@ void MainActivity_5() {
 }
 void MainActivity_6() {
     ClearConsole();
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << "To add if statements in private void retrievedata() \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << endl;
 
     unsigned int ImageSTART;
     unsigned int ImageEND;
@@ -633,8 +597,10 @@ void MainActivity_6() {
     return_to_menu();
 }
 void MainActivity_SubMenu() {
-
+    ClearConsole();
+    string EnteredValue;
     Sub_ExeCode = 0;    // To ensure Sub_ExeCode does not hold garbage data
+    
     while (Sub_ExeCode != 177013) {
 
         switch (Sub_ExeCode) {
@@ -679,7 +645,8 @@ void MainActivity_SubMenu() {
             cout << "98.  Exit to Main Menu" << endl;
             cout << "99.  Exit to Desktop" << endl;
 
-            cin >> Sub_ExeCode;
+            cin >> EnteredValue;
+            Sub_ExeCode = stoi(EnteredValue);
             break;
         }
     }
@@ -687,12 +654,7 @@ void MainActivity_SubMenu() {
 }
 //ClickerSettings.Java FUNCTIONS
 void ClickerSettings_1() {
-    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << "To declare Switch variable in ClickerSettings.Java \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << endl;
+    ClearConsole();
 
     unsigned int AudioSTART;
     unsigned int AudioEND;
@@ -742,12 +704,7 @@ void ClickerSettings_1() {
 
 }
 void ClickerSettings_2() {
-    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << "To declare RadioButton and TableRow variable in ClickerSettings.Java \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << endl;
+    ClearConsole();
 
     unsigned int ImageSTART;
     unsigned int ImageEND;
@@ -809,12 +766,7 @@ void ClickerSettings_2() {
     return_to_menu();
 }
 void ClickerSettings_3() {
-    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << "To setup Switches in ClickerSettings.Java \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << endl;
+    ClearConsole();
 
     unsigned int AudioSTART;
     unsigned int AudioEND;
@@ -887,12 +839,7 @@ void ClickerSettings_3() {
 
 }
 void ClickerSettings_4() {
-    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << "To setup Toggle Button in ClickerSettings.Java \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << endl;
+    ClearConsole();
 
     unsigned int AudioSTART;
     unsigned int AudioEND;
@@ -967,12 +914,7 @@ void ClickerSettings_4() {
     return_to_menu();
 }
 void ClickerSettings_5() {
-    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << "To setup RadioButton and TableRow in ClickerSettings.Java \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << endl;
+    ClearConsole();
 
     unsigned int ImageSTART;
     unsigned int ImageEND;
@@ -1078,12 +1020,7 @@ void ClickerSettings_5() {
     return_to_menu();
 }
 void ClickerSettings_6() {
-    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << "To add if statements in private void retrievedata() \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n";
-    cout << endl;
+    ClearConsole();
 
     unsigned int ImageSTART;
     unsigned int ImageEND;
@@ -1148,8 +1085,10 @@ void ClickerSettings_6() {
 
 }
 void ClickerSettings_SubMenu() {
-
+    ClearConsole();
+    string EnteredValue;
     Sub_ExeCode = 0;    // To ensure Sub_ExeCode does not hold garbage data
+
     while (Sub_ExeCode != 177013) {
 
         switch (Sub_ExeCode) {
@@ -1193,7 +1132,8 @@ void ClickerSettings_SubMenu() {
             cout << "98.  Exit to Main Menu" << endl;
             cout << "99.  Exit to Desktop" << endl;
 
-            cin >> Sub_ExeCode;
+            cin >> EnteredValue;
+            Sub_ExeCode = stoi(EnteredValue);
             break;
         }
     }
@@ -1202,11 +1142,6 @@ void ClickerSettings_SubMenu() {
 //clicker_settings.xml FUNCTIONS
 void clicker_settings_1() {
     ClearConsole();
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << "For Audio Switches in clicker_settings.xml \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << endl;
 
     unsigned int AudioSTART;
     unsigned int AudioEND;
@@ -1276,11 +1211,6 @@ void clicker_settings_1() {
 }
 void clicker_settings_2() {
     ClearConsole();
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << "For Radio Buttons in clicker_settings.xml \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << endl;
 
     unsigned int ImageSTART;
     unsigned int ImageEND;
@@ -1352,8 +1282,10 @@ void clicker_settings_2() {
     return_to_menu();
 }
 void clicker_settings_SubMenu() {
-
+    ClearConsole();
+    string EnteredValue;
     Sub_ExeCode = 0;    // To ensure Sub_ExeCode does not hold garbage data
+
     while (Sub_ExeCode != 177013) {
 
         switch (Sub_ExeCode) {
@@ -1379,7 +1311,8 @@ void clicker_settings_SubMenu() {
             cout << "98.  Exit to Main Menu" << endl;
             cout << "99.  Exit to Desktop" << endl;
 
-            cin >> Sub_ExeCode;
+            cin >> EnteredValue;
+            Sub_ExeCode = stoi(EnteredValue);
             break;
         }
     }
@@ -1387,12 +1320,6 @@ void clicker_settings_SubMenu() {
 //strings.xml FUNCTIONS
 void StringsXML_1() {
     ClearConsole();
-    //For README file
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << "To generate string res for strings.xml \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << endl;
 
     ifstream myFile("file.txt");
     string myText;
@@ -1452,8 +1379,10 @@ void StringsXML_1() {
 
 }
 void StringsXML_SubMenu() {
-
+    ClearConsole();
+    string EnteredValue;
     Sub_ExeCode = 0;    // To ensure Sub_ExeCode does not hold garbage data
+
     while (Sub_ExeCode != 177013) {
 
         switch (Sub_ExeCode) {
@@ -1475,20 +1404,15 @@ void StringsXML_SubMenu() {
             cout << "98.  Exit to Main Menu" << endl;
             cout << "99.  Exit to Desktop" << endl;
 
-            cin >> Sub_ExeCode;
+            cin >> EnteredValue;
+            Sub_ExeCode = stoi(EnteredValue);
             break;
         }
     }
 }
 //Release Documents FUNCTIONS
 void ReleaseDoc_1() {
-    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-    //For README file
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << "For Documentation in README \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << endl;
+    ClearConsole();
 
 
     unsigned int AudioSTART;
@@ -1607,8 +1531,10 @@ void ReleaseDoc_2() {
 
 }
 void ReleaseDoc_SubMenu() {
-
+    ClearConsole();
+    string EnteredValue;
     Sub_ExeCode = 0;    // To ensure Sub_ExeCode does not hold garbage data
+
     while (Sub_ExeCode != 177013) {
 
         switch (Sub_ExeCode) {
@@ -1634,7 +1560,8 @@ void ReleaseDoc_SubMenu() {
             cout << "98.  Exit to Main Menu" << endl;
             cout << "99.  Exit to Desktop" << endl;
 
-            cin >> Sub_ExeCode;
+            cin >> EnteredValue;
+            Sub_ExeCode = stoi(EnteredValue);
             break;
         }
     }
@@ -1644,7 +1571,7 @@ void ReleaseDoc_SubMenu() {
 //Vtuber Noises Automation Main Menu
 void VNA_MainMenu() {
     Program_Splash();
-
+    string EnteredValue;
     Main_ExeCode = 0; //To ensure Main_Execode does not hold garbage data
 
     while (Main_ExeCode != 177013) {
@@ -1694,7 +1621,8 @@ void VNA_MainMenu() {
             cout << "98. About Program" << endl;
             cout << "99. Exit to Desktop" << endl;
 
-            cin >> Main_ExeCode;
+            cin >> EnteredValue;
+            Main_ExeCode = stoi(EnteredValue);
             break;
         }
     }
