@@ -31,14 +31,6 @@ unsigned int ImageEnd;
 
 
 
-
-
-
-int start_num;          //The 1st number of the (vtuber)noises mp3 file
-int end_num;            //The last number of the (vtuber)noises mp3 file
-int temp_num;
-string vtuber;          //For Vtuber Name (vtuber)noises
-
 //IMPORTANT FUNCTIONS (WARNING : DO NOT REMOVE OR MODIFY)
 void ClearConsole() {
     system("cls");
@@ -258,352 +250,9 @@ int GET_imageEnd() {         //GET Image file Ending Number
 }
 
 
-//clicker_settings.xml FUNCTIONS
-void submenu3_1() {
-    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << "For Audio Switches in clicker_settings.xml \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << endl;
-
-    //Prompt user for the starting and ending number of the noises
-    cout << "Enter the starting number for the noises : ";
-    cin >> start_num;
-    cout << "Enter the ending number for the noises : ";
-    cin >> end_num;
-
-    cout << "\n\n\n";
 
 
-    for (temp_num = start_num; temp_num <= end_num; temp_num++) {
-
-        cout << "<TableRow" << endl;
-        cout << "android:layout_marginBottom=\"5dp\"" << endl;
-        cout << "android:paddingLeft=\"10dp\"" << endl;
-        cout << "android:layout_width=\"match_parent\"" << endl;
-        cout << "android:layout_height=\"match_parent\">" << endl;
-        cout << "" << endl;
-        cout << "<TextView" << endl;
-        cout << "android:layout_weight=\"1\"" << endl;
-        cout << "android:layout_width=\"wrap_content\"" << endl;
-        cout << "android:layout_height=\"wrap_content\"" << endl;
-        cout << "android:text=\"@string/noise" << temp_num << "_text\"" << endl;
-        cout << "android:textColor=\"#f1f1f1\"" << endl;
-        cout << "android:textSize=\"17sp\" />" << endl;
-        cout << "" << endl;
-        cout << "<Switch" << endl;
-        cout << "android:id=\"@+id/switch" << temp_num + 2 << "\"" << endl;
-        cout << "android:layout_width=\"match_parent\"" << endl;
-        cout << "android:layout_height=\"wrap_content\" />" << endl;
-        cout << "" << endl;
-        cout << "</TableRow>" << endl;
-        cout << endl;
-
-    }
-
-    return_to_menu();
-}
-void submenu3_2() {
-    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << "For Radio Buttons in clicker_settings.xml \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << endl;
-
-    int startIMG_num;
-    int endIMG_num;
-    int tempIMG_num;
-    int tempIMG_num2;
-    string Vtuber;
-
-    cout << "Enter starting number for IMG :";
-    cin >> startIMG_num;
-    cout << "Enter ending number for IMG :";
-    cin >> endIMG_num;
-    cout << "Enter Vtuber name (1st letter caps) :";
-    cin >> Vtuber;
-    cout << "Enter the Vtuber's name (no caps) : ";
-    cin >> vtuber;
-
-
-    cout << endl;
-    cout << endl;
-    for (tempIMG_num = startIMG_num; tempIMG_num <= endIMG_num; tempIMG_num++) {
-
-        cout << "<TableRow" << endl;
-        cout << "android:id=\"@+id/" << vtuber << tempIMG_num << "_img_row\">" << endl;
-        cout << "<ImageView" << endl;
-        cout << "android:padding=\"10dp\"" << endl;
-        cout << "android:src=\"@drawable/" << vtuber << tempIMG_num << "\"" << endl;
-        cout << "android:layout_width=\"100dp\"" << endl;
-        cout << "android:layout_height=\"100dp\"/>" << endl;
-        cout << "<RadioButton" << endl;
-        cout << "android:id=\"@+id/" << vtuber << tempIMG_num << "_img\"" << endl;
-        cout << "android:layout_gravity=\"center_vertical\"" << endl;
-        cout << "android:textSize=\"17dp\"" << endl;
-        cout << "android:buttonTint=\"@color/colorAccent\"" << endl;
-        cout << "android:text=\"" << Vtuber << " " << tempIMG_num << "\"" << endl;
-        cout << "android:textColor=\"@color/colorAccent\"" << endl;
-        cout << "android:layout_width=\"match_parent\"" << endl;
-        cout << "android:layout_height=\"wrap_content\"/>" << endl;
-        cout << "</TableRow>" << endl;
-        cout << endl;
-
-    }
-
-    return_to_menu();
-}
-void Sub_Menu3() {
-
-    Sub_ExeCode = 0;    // To ensure Sub_ExeCode does not hold garbage data
-    while (Sub_ExeCode != 177013) {
-
-        switch (Sub_ExeCode) {
-        case 1:
-            submenu3_1();
-            break;
-        case 2:
-            submenu3_2();
-            break;
-        case 98:
-            return_to_main();
-            break;
-        case 99:
-            exit_to_desktop();
-            break;
-        default:
-            ClearConsole();
-            cout << "Select an option from menu :" << endl;
-            cout << "~~~~~~~~~" << endl;
-            cout << "1.  Generate switches for xml file" << endl;
-            cout << "2.  Generate radiobutton for xml file" << endl;
-            cout << "~~~~~~~~~" << endl;
-            cout << "98.  Exit to Main Menu" << endl;
-            cout << "99.  Exit to Desktop" << endl;
-
-            cin >> Sub_ExeCode;
-            break;
-        }
-    }
-}
-
-//strings.xml FUNCTIONS
-void submenu4_1() {
-    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-    //For README file
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << "To generate string res for strings.xml \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << endl;
-
-    ifstream myFile("file.txt");
-    string myText;
-
-    //Prompt user for the starting and ending number of the noises
-    cout << "Enter the starting number for the noises : ";
-    cin >> start_num;
-    cout << "Enter the ending number for the noises : ";
-    cin >> end_num;
-
-    cout << "\n\n\n";
-
-    temp_num = start_num;
-
-    while (getline(myFile, myText))
-    {
-        if (temp_num > end_num) {
-            break;
-        }
-        else {
-            cout << "<string name=\"noise" << temp_num << "_text\">" << myText << "</string>" << endl;
-            temp_num++;
-        }
-    }
-
-    myFile.close();
-    return_to_menu();
-
-}
-void Sub_Menu4() {
-
-    Sub_ExeCode = 0;    // To ensure Sub_ExeCode does not hold garbage data
-    while (Sub_ExeCode != 177013) {
-
-        switch (Sub_ExeCode) {
-        case 1:
-            submenu4_1();
-            break;
-        case 98:
-            return_to_main();
-            break;
-        case 99:
-            exit_to_desktop();
-            break;
-        default:
-            ClearConsole();
-            cout << "Select an option from menu :" << endl;
-            cout << "~~~~~~~~~" << endl;
-            cout << "1.  Generate string res for strings.xml" << endl;
-            cout << "~~~~~~~~~" << endl;
-            cout << "98.  Exit to Main Menu" << endl;
-            cout << "99.  Exit to Desktop" << endl;
-
-            cin >> Sub_ExeCode;
-            break;
-        }
-    }
-}
-
-//Release Documents FUNCTIONS
-void submenu5_1() {
-    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-    //For README file
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << "For Documentation in README \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << endl;
-
-
-
-    string VtuberFirst;
-    string VtuberLast;
-
-
-    cout << "Enter Vtuber First name (eg. Tokino) :";
-    cin >> VtuberFirst;
-    cout << "Enter Vtuber Last name (eg. Sora) :";
-    cin >> VtuberLast;
-    cout << "Enter the Vtuber's name (no caps) : ";
-    cin >> vtuber;
-    //Prompt user for the starting and ending number of the noises
-    cout << "Enter the starting number for the noises : ";
-    cin >> start_num;
-    cout << "Enter the ending number for the noises : ";
-    cin >> end_num;
-
-    cout << "\n\n\n";
-
-    cout << endl;
-    cout << endl;
-
-
-    cout << "# " << VtuberFirst << " " << VtuberLast << " Noises" << endl;
-    cout << VtuberLast << " Noises is a clicker app for Android smartphones and tablets that brings entertainment to you by playing noises made by " << VtuberLast << " ." << endl;
-    cout << "The interface of " << VtuberLast << " Noises is designed to be simple, intuitive and efficient. By removing what is not essential, we make access to everything you need even easier." << endl;
-    cout << endl;
-
-    cout << "# Download" << endl;
-    cout << "[<img src=\"https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png\"" << endl;
-    cout << "alt=\"Get it on Google Play\"" << endl;
-    cout << "height=\"80\">](https://play.google.com/store/apps/details?id=com.yuzumin." << vtuber << "noises)" << endl;
-
-
-    cout << endl;
-    cout << "# Features" << endl;
-    cout << "* " << end_num << " Noises" << endl;
-    cout << "* Alarm Clock" << endl;
-    cout << "* Google Drive Download" << endl;
-
-    cout << endl;
-    cout << "# License" << endl;
-    cout << "GNU General Public License V3" << endl;
-
-    cout << endl;
-    cout << "# List of Noises" << endl;
-    //loops to generate (vtuber)noise(number) for documentation
-    for (temp_num = start_num; temp_num <= end_num; temp_num++) {
-        cout << "* " << vtuber << "noise" << temp_num << " " << endl;
-    }
-
-
-    return_to_menu();
-
-}
-void submenu5_2() {
-    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-    cout << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << "For App Release Note \n";
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-    cout << endl;
-
-    cout << "\n\n\n";
-
-    cout << endl;
-    cout << endl;
-
-    cout << "/***NEW FEATURES***/" << endl;
-    cout << "•Developer Mode" << endl;
-    cout << "•Alarm Clock" << endl;
-    cout << "•Google Drive Download" << endl;
-
-    cout << endl;
-    cout << endl;
-    cout << endl;
-
-    cout << "/***FIXES***/" << endl;
-    cout << "•New Randomizer" << endl;
-    cout << "•Popup Text Error" << endl;
-    cout << "•Google Drive Download" << endl;
-
-    cout << endl;
-    cout << endl;
-
-    cout << "/***HOW TO USE***/" << endl;
-    cout << "Go to menu and tap Version 7 times" << endl;
-    cout << "to unlock Alarm feature" << endl;
-
-    cout << endl;
-    cout << endl;
-    cout << endl;
-
-    cout << "/***IMPORTANT***/" << endl;
-    cout << "Alarm is still an unstable feature" << endl;
-    cout << "Uses Media Volume instead of Alarm Volume" << endl;
-    cout << "Currently is not able to delete alarms yet" << endl;
-
-    cout << endl;
-    cout << "IT IS NOT RECOMMENDED TO BE USED AS A MAIN ALARM" << endl;
-    return_to_menu();
-
-}
-void Sub_Menu5() {
-
-    Sub_ExeCode = 0;    // To ensure Sub_ExeCode does not hold garbage data
-    while (Sub_ExeCode != 177013) {
-
-        switch (Sub_ExeCode) {
-        case 1:
-            submenu5_1();
-            break;
-        case 2:
-            submenu5_2();
-            break;
-        case 98:
-            return_to_main();
-            break;
-        case 99:
-            exit_to_desktop();
-            break;
-        default:
-            ClearConsole();
-            cout << "Select an option from menu :" << endl;
-            cout << "~~~~~~~~~" << endl;
-            cout << "1.  Generate Documentation for README" << endl;
-            cout << "2.  Generate App Release Note" << endl;
-            cout << "~~~~~~~~~" << endl;
-            cout << "98.  Exit to Main Menu" << endl;
-            cout << "99.  Exit to Desktop" << endl;
-
-            cin >> Sub_ExeCode;
-            break;
-        }
-    }
-}
+//Program Sub Menus and Functions (WARNING: DO NOT MODIFY UNNECESSARILY)
 
 //MainActivity.Java FUNCTIONS
 void MainActivity_1() {
@@ -828,9 +477,9 @@ void MainActivity_4() {
             AudioSTART = GET_audioStart();
             AudioEND = GET_audioEnd();
             ClearConsole();
-            cout << "Vtuber First Name: " << vtuberFN_LC << endl;
             cout << "MP3 Starting Number: " << AudioSTART << endl;
             cout << "MP3 Ending Number: " << AudioEND << endl;
+            cout << "Vtuber First Name: " << vtuberFN_LC << endl;
             cout << "Would you like to change these values? (Y/n)";
             cin >> exe_char;
             ClearConsole();
@@ -1036,7 +685,6 @@ void MainActivity_SubMenu() {
     }
 
 }
-
 //ClickerSettings.Java FUNCTIONS
 void ClickerSettings_1() {
     cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
@@ -1551,6 +1199,447 @@ void ClickerSettings_SubMenu() {
     }
 
 }
+//clicker_settings.xml FUNCTIONS
+void clicker_settings_1() {
+    ClearConsole();
+    cout << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << "For Audio Switches in clicker_settings.xml \n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << endl;
+
+    unsigned int AudioSTART;
+    unsigned int AudioEND;
+    unsigned int AudioTEMP = 0;
+    unsigned char exe_char = 'x';
+
+    while (exe_char != 'O') {
+        switch (exe_char)
+        {
+        case 'y':
+            exe_char = 'Y';
+            break;
+        case 'Y':
+            SET_audioStart();
+            SET_audioEnd();
+            exe_char = 'x';
+            break;
+        case 'N':
+            exe_char = 'n';
+            break;
+        case 'n':
+            exe_char = 'O';
+            break;
+        default:
+            //Prompt user for the starting and ending number of the noises
+            ClearConsole();
+            AudioSTART = GET_audioStart();
+            AudioEND = GET_audioEnd();
+            ClearConsole();
+            cout << "MP3 Starting Number: " << AudioSTART << endl;
+            cout << "MP3 Ending Number: " << AudioEND << endl;
+            cout << "Would you like to change these values? (Y/n)";
+            cin >> exe_char;
+            ClearConsole();
+            break;
+        }
+    }
+
+    ClearConsole();;
+
+
+    for (AudioTEMP = AudioSTART; AudioTEMP <= AudioEND; AudioTEMP++) {
+        cout << "<TableRow" << endl;
+        cout << "android:layout_marginBottom=\"5dp\"" << endl;
+        cout << "android:paddingLeft=\"10dp\"" << endl;
+        cout << "android:layout_width=\"match_parent\"" << endl;
+        cout << "android:layout_height=\"match_parent\">" << endl;
+        cout << "" << endl;
+        cout << "<TextView" << endl;
+        cout << "android:layout_weight=\"1\"" << endl;
+        cout << "android:layout_width=\"wrap_content\"" << endl;
+        cout << "android:layout_height=\"wrap_content\"" << endl;
+        cout << "android:text=\"@string/noise" << AudioTEMP << "_text\"" << endl;
+        cout << "android:textColor=\"#f1f1f1\"" << endl;
+        cout << "android:textSize=\"17sp\" />" << endl;
+        cout << "" << endl;
+        cout << "<Switch" << endl;
+        cout << "android:id=\"@+id/switch" << AudioTEMP + 2 << "\"" << endl;
+        cout << "android:layout_width=\"match_parent\"" << endl;
+        cout << "android:layout_height=\"wrap_content\" />" << endl;
+        cout << "" << endl;
+        cout << "</TableRow>" << endl;
+        cout << endl;
+    }
+
+    return_to_menu();
+}
+void clicker_settings_2() {
+    ClearConsole();
+    cout << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << "For Radio Buttons in clicker_settings.xml \n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << endl;
+
+    unsigned int ImageSTART;
+    unsigned int ImageEND;
+    unsigned int ImageTEMP;
+    string vtuberFN;
+    string vtuberFN_LC;
+    unsigned char exe_char = 'x';
+
+    while (exe_char != 'O') {
+        switch (exe_char)
+        {
+        case 'y':
+            exe_char = 'Y';
+            break;
+        case 'Y':
+            SET_imageStart();
+            SET_imageEnd();
+            SET_vtuberFN();
+            exe_char = 'x';
+            break;
+        case 'N':
+            exe_char = 'n';
+            break;
+        case 'n':
+            exe_char = 'O';
+            break;
+        default:
+            //Prompt user for the starting and ending number of the noises
+            ClearConsole();
+            ImageSTART = GET_imageStart();
+            ImageEND = GET_imageEnd();
+            vtuberFN = GET_vtuberFN();
+            vtuberFN_LC = GET_vtuberFN_LC();
+            ClearConsole();
+            cout << "Image Starting Number: " << ImageSTART << endl;
+            cout << "Image Ending Number: " << ImageEND << endl;
+            cout << "Vtuber First Name: " << vtuberFN << endl;
+            cout << "Would you like to change these values? (Y/n)";
+            cin >> exe_char;
+            ClearConsole();
+            break;
+        }
+    }
+    ClearConsole();
+
+    for (ImageTEMP = ImageSTART; ImageTEMP <= ImageEND; ImageTEMP++) {
+
+        cout << "<TableRow" << endl;
+        cout << "android:id=\"@+id/" << vtuberFN_LC << ImageTEMP << "_img_row\">" << endl;
+        cout << "<ImageView" << endl;
+        cout << "android:padding=\"10dp\"" << endl;
+        cout << "android:src=\"@drawable/" << vtuberFN_LC << ImageTEMP << "\"" << endl;
+        cout << "android:layout_width=\"100dp\"" << endl;
+        cout << "android:layout_height=\"100dp\"/>" << endl;
+        cout << "<RadioButton" << endl;
+        cout << "android:id=\"@+id/" << vtuberFN_LC << ImageTEMP << "_img\"" << endl;
+        cout << "android:layout_gravity=\"center_vertical\"" << endl;
+        cout << "android:textSize=\"17dp\"" << endl;
+        cout << "android:buttonTint=\"@color/colorAccent\"" << endl;
+        cout << "android:text=\"" << vtuberFN << " " << ImageTEMP << "\"" << endl;
+        cout << "android:textColor=\"@color/colorAccent\"" << endl;
+        cout << "android:layout_width=\"match_parent\"" << endl;
+        cout << "android:layout_height=\"wrap_content\"/>" << endl;
+        cout << "</TableRow>" << endl;
+        cout << endl;
+
+    }
+
+    return_to_menu();
+}
+void clicker_settings_SubMenu() {
+
+    Sub_ExeCode = 0;    // To ensure Sub_ExeCode does not hold garbage data
+    while (Sub_ExeCode != 177013) {
+
+        switch (Sub_ExeCode) {
+        case 1:
+            clicker_settings_1();
+            break;
+        case 2:
+            clicker_settings_2();
+            break;
+        case 98:
+            return_to_main();
+            break;
+        case 99:
+            exit_to_desktop();
+            break;
+        default:
+            ClearConsole();
+            cout << "Select an option from menu :" << endl;
+            cout << "~~~~~~~~~" << endl;
+            cout << "1.  Generate switches for xml file" << endl;
+            cout << "2.  Generate radiobutton for xml file" << endl;
+            cout << "~~~~~~~~~" << endl;
+            cout << "98.  Exit to Main Menu" << endl;
+            cout << "99.  Exit to Desktop" << endl;
+
+            cin >> Sub_ExeCode;
+            break;
+        }
+    }
+}
+//strings.xml FUNCTIONS
+void StringsXML_1() {
+    ClearConsole();
+    //For README file
+    cout << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << "To generate string res for strings.xml \n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << endl;
+
+    ifstream myFile("file.txt");
+    string myText;
+
+    unsigned int AudioSTART;
+    unsigned int AudioEND;
+    unsigned int AudioTEMP = 0;
+    unsigned char exe_char = 'x';
+
+    while (exe_char != 'O') {
+        switch (exe_char)
+        {
+        case 'y':
+            exe_char = 'Y';
+            break;
+        case 'Y':
+            SET_audioStart();
+            SET_audioEnd();
+            exe_char = 'x';
+            break;
+        case 'N':
+            exe_char = 'n';
+            break;
+        case 'n':
+            exe_char = 'O';
+            break;
+        default:
+            //Prompt user for the starting and ending number of the noises
+            ClearConsole();
+            AudioSTART = GET_audioStart();
+            AudioEND = GET_audioEnd();
+            ClearConsole();
+            cout << "MP3 Starting Number: " << AudioSTART << endl;
+            cout << "MP3 Ending Number: " << AudioEND << endl;
+            cout << "Would you like to change these values? (Y/n)";
+            cin >> exe_char;
+            ClearConsole();
+            break;
+        }
+    }
+    ClearConsole();
+
+    AudioTEMP = AudioSTART;
+    while (getline(myFile, myText))
+    {
+        if (AudioTEMP > AudioEND) {
+            break;
+        }
+        else {
+            cout << "<string name=\"noise" << AudioTEMP << "_text\">" << myText << "</string>" << endl;
+            AudioTEMP++;
+        }
+    }
+
+    myFile.close();
+    return_to_menu();
+
+}
+void StringsXML_SubMenu() {
+
+    Sub_ExeCode = 0;    // To ensure Sub_ExeCode does not hold garbage data
+    while (Sub_ExeCode != 177013) {
+
+        switch (Sub_ExeCode) {
+        case 1:
+            StringsXML_1();
+            break;
+        case 98:
+            return_to_main();
+            break;
+        case 99:
+            exit_to_desktop();
+            break;
+        default:
+            ClearConsole();
+            cout << "Select an option from menu :" << endl;
+            cout << "~~~~~~~~~" << endl;
+            cout << "1.  Generate string res for strings.xml" << endl;
+            cout << "~~~~~~~~~" << endl;
+            cout << "98.  Exit to Main Menu" << endl;
+            cout << "99.  Exit to Desktop" << endl;
+
+            cin >> Sub_ExeCode;
+            break;
+        }
+    }
+}
+//Release Documents FUNCTIONS
+void ReleaseDoc_1() {
+    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    //For README file
+    cout << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << "For Documentation in README \n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << endl;
+
+
+    unsigned int AudioSTART;
+    unsigned int AudioEND;
+    unsigned int AudioTEMP = 0;
+    string vtuberFN;
+    string vtuberFN_LC;
+    string vtuberLN;
+    unsigned char exe_char = 'x';
+
+    while (exe_char != 'O') {
+        switch (exe_char)
+        {
+        case 'y':
+            exe_char = 'Y';
+            break;
+        case 'Y':
+            SET_audioStart();
+            SET_audioEnd();
+            exe_char = 'x';
+            break;
+        case 'N':
+            exe_char = 'n';
+            break;
+        case 'n':
+            exe_char = 'O';
+            break;
+        default:
+            //Prompt user for the starting and ending number of the noises
+            ClearConsole();
+            AudioSTART = GET_audioStart();
+            AudioEND = GET_audioEnd();
+            ClearConsole();
+            cout << "MP3 Starting Number: " << AudioSTART << endl;
+            cout << "MP3 Ending Number: " << AudioEND << endl;
+            cout << "Vtuber First Name: " << vtuberFN << endl;
+            cout << "Vtuber Last Name: " << vtuberLN << endl;
+            cout << "Would you like to change these values? (Y/n)";
+            cin >> exe_char;
+            ClearConsole();
+            break;
+        }
+    }
+
+    ClearConsole();
+
+
+    cout << "# " << vtuberFN << " " << vtuberLN << " Noises" << endl;
+    cout << vtuberLN << " Noises is a clicker app for Android smartphones and tablets that brings entertainment to you by playing noises made by " << vtuberLN << " ." << endl;
+    cout << "The interface of " << vtuberLN << " Noises is designed to be simple, intuitive and efficient. By removing what is not essential, we make access to everything you need even easier." << endl;
+    cout << endl;
+
+    cout << "# Download" << endl;
+    cout << "[<img src=\"https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png\"" << endl;
+    cout << "alt=\"Get it on Google Play\"" << endl;
+    cout << "height=\"80\">](https://play.google.com/store/apps/details?id=com.yuzumin." << vtuberFN_LC << "noises)" << endl;
+
+
+    cout << endl;
+    cout << "# Features" << endl;
+    cout << "* " << AudioEND << " Noises" << endl;
+    cout << "* Alarm Clock" << endl;
+    cout << "* Google Drive Download" << endl;
+
+    cout << endl;
+    cout << "# License" << endl;
+    cout << "GNU General Public License V3" << endl;
+
+    cout << endl;
+    cout << "# List of Noises" << endl;
+    //loops to generate (vtuber)noise(number) for documentation
+    for (AudioTEMP = AudioSTART; AudioTEMP <= AudioEND; AudioTEMP++) {
+        cout << "* " << vtuberFN_LC << "noise" << AudioTEMP << " " << endl;
+    }
+
+
+    return_to_menu();
+
+}
+void ReleaseDoc_2() {
+    ClearConsole();
+
+    cout << "/***NEW FEATURES***/" << endl;
+    cout << "•Developer Mode" << endl;
+    cout << "•Alarm Clock" << endl;
+    cout << "•Google Drive Download" << endl;
+
+    cout << endl;
+    cout << endl;
+    cout << endl;
+
+    cout << "/***FIXES***/" << endl;
+    cout << "•New Randomizer" << endl;
+    cout << "•Popup Text Error" << endl;
+    cout << "•Google Drive Download" << endl;
+
+    cout << endl;
+    cout << endl;
+
+    cout << "/***HOW TO USE***/" << endl;
+    cout << "Go to menu and tap Version 7 times" << endl;
+    cout << "to unlock Alarm feature" << endl;
+
+    cout << endl;
+    cout << endl;
+    cout << endl;
+
+    cout << "/***IMPORTANT***/" << endl;
+    cout << "Alarm is still an unstable feature" << endl;
+    cout << "Uses Media Volume instead of Alarm Volume" << endl;
+    cout << "Currently is not able to delete alarms yet" << endl;
+
+    cout << endl;
+    cout << "IT IS NOT RECOMMENDED TO BE USED AS A MAIN ALARM" << endl;
+    return_to_menu();
+
+}
+void ReleaseDoc_SubMenu() {
+
+    Sub_ExeCode = 0;    // To ensure Sub_ExeCode does not hold garbage data
+    while (Sub_ExeCode != 177013) {
+
+        switch (Sub_ExeCode) {
+        case 1:
+            ReleaseDoc_1();
+            break;
+        case 2:
+            ReleaseDoc_2();
+            break;
+        case 98:
+            return_to_main();
+            break;
+        case 99:
+            exit_to_desktop();
+            break;
+        default:
+            ClearConsole();
+            cout << "Select an option from menu :" << endl;
+            cout << "~~~~~~~~~" << endl;
+            cout << "1.  Generate Documentation for README" << endl;
+            cout << "2.  Generate App Release Note" << endl;
+            cout << "~~~~~~~~~" << endl;
+            cout << "98.  Exit to Main Menu" << endl;
+            cout << "99.  Exit to Desktop" << endl;
+
+            cin >> Sub_ExeCode;
+            break;
+        }
+    }
+}
+
 
 //Vtuber Noises Automation Main Menu
 void VNA_MainMenu() {
@@ -1571,15 +1660,15 @@ void VNA_MainMenu() {
             break;
         case 3:
             ClearConsole();
-            Sub_Menu3();
+            clicker_settings_SubMenu();
             break;
         case 4:
             ClearConsole();
-            Sub_Menu4();
+            StringsXML_SubMenu();
             break;
         case 5:
             ClearConsole();
-            Sub_Menu5();
+            ReleaseDoc_SubMenu();
             break;
         case 98:
             ClearConsole();
