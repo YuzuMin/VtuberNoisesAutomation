@@ -156,10 +156,10 @@ void Program_Splash() {
 //VTUBER DATA
 string VtuberFN;
 string VtuberLN;
-unsigned int AudioStart;
-unsigned int AudioEnd;
-unsigned int ImageStart;
-unsigned int ImageEnd;
+unsigned int AudioStart = 4294967295;
+unsigned int AudioEnd = NULL;
+unsigned int ImageStart = 4294967295;
+unsigned int ImageEnd = NULL;
 //VTUBER DATA HANDLER 
 //VtuberNoises SET Functions
 void SET_vtuberFN() {        //SET Vtuber's First Name
@@ -184,7 +184,7 @@ void SET_audioEnd() {        //SET MP3 file Ending Number
 }
 void SET_imageStart() {      //SET Image file Starting Number
     string EnteredValue;
-    cout << "Enter Image file START Number (1): ";
+    cout << "Enter Image file START Number (0): ";
     cin >> EnteredValue;
     ImageStart = stoi(EnteredValue);
 }
@@ -219,7 +219,7 @@ string GET_vtuberLN() {      //GET Vtuber's Last Name
     return VtuberLN;
 }
 int GET_audioStart() {         //GET MP3 file Starting Number
-    if (AudioStart == NULL) {
+    if (AudioStart == 4294967295) {
         SET_audioStart();
     }
     return AudioStart;
@@ -231,7 +231,7 @@ int GET_audioEnd() {         //GET MP3 file Ending Number
     return AudioEnd;
 }
 int GET_imageStart() {       //GET Image file Starting Number
-    if (ImageStart == NULL) {
+    if (ImageStart == 4294967295) {
         SET_imageStart();
     }
     return ImageStart;
@@ -496,8 +496,8 @@ void MainActivity_5() {
             exe_char = 'Y';
             break;
         case 'Y':
-            SET_audioStart();
-            SET_audioEnd();
+            SET_imageStart();
+            SET_imageEnd();
             exe_char = 'x';
             break;
         case 'N':
@@ -509,8 +509,8 @@ void MainActivity_5() {
         default:
             //Prompt user for the starting and ending number of the noises
             ClearConsole();
-            ImageSTART = GET_audioStart();
-            ImageEND = GET_audioEnd();
+            ImageSTART = GET_imageStart();
+            ImageEND = GET_imageEnd();
             vtuberFN_LC = GET_vtuberFN_LC();
             ClearConsole();
             cout << "MP3 Starting Number: " << ImageSTART << endl;
@@ -812,7 +812,7 @@ void ClickerSettings_3() {
         cout << "// for switch " << AudioTEMP + 2 << " to activate" << endl;
         cout << "switch" << AudioTEMP + 2 << "=findViewById(R.id.switch" << AudioTEMP + 2 << ");" << endl;
         cout << "SoundSettings =getSharedPreferences(\"save" << AudioTEMP + 2 << "\",MODE_PRIVATE);" << endl;
-        cout << "switch" << AudioTEMP + 2 << ".setChecked(SoundSettings.getBoolean(\"value" << AudioTEMP + 2 << "\",true));" << endl;
+        cout << "switch" << AudioTEMP + 2 << ".setChecked(SoundSettings.getBoolean(\"value" << AudioTEMP + 2 << "\",false));" << endl;
         cout << "switch" << AudioTEMP + 2 << ".setOnClickListener(new View.OnClickListener() {" << endl;
         cout << "@Override" << endl;
         cout << "public void onClick(View v) {" << endl;
