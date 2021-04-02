@@ -1429,6 +1429,8 @@ void ReleaseDoc_1() {
             exe_char = 'Y';
             break;
         case 'Y':
+            SET_vtuberFN();
+            SET_vtuberLN();
             SET_audioStart();
             SET_audioEnd();
             exe_char = 'x';
@@ -1442,6 +1444,9 @@ void ReleaseDoc_1() {
         default:
             //Prompt user for the starting and ending number of the noises
             ClearConsole();
+            vtuberFN = GET_vtuberFN();
+            vtuberFN_LC = GET_vtuberFN_LC();
+            vtuberLN = GET_vtuberLN();
             AudioSTART = GET_audioStart();
             AudioEND = GET_audioEnd();
             ClearConsole();
@@ -1459,7 +1464,7 @@ void ReleaseDoc_1() {
     ClearConsole();
 
 
-    cout << "# " << vtuberFN << " " << vtuberLN << " Noises" << endl;
+    cout << "# " << vtuberLN << " " << vtuberFN << " Noises" << endl;
     cout << vtuberLN << " Noises is a clicker app for Android smartphones and tablets that brings entertainment to you by playing noises made by " << vtuberLN << " ." << endl;
     cout << "The interface of " << vtuberLN << " Noises is designed to be simple, intuitive and efficient. By removing what is not essential, we make access to everything you need even easier." << endl;
     cout << endl;
