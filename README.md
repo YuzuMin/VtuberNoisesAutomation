@@ -9,7 +9,7 @@ Version Name : 2021.3 REV-1
 ~~~
 
 ### Obtaining VNA  
-You can git the repository and compile from source or download the latest executable release.
+You can clone the repository and compile from source or download the latest executable release.
 
 ## License  
 MIT License
