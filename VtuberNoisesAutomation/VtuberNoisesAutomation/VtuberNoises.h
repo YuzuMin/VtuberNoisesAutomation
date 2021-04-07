@@ -1465,8 +1465,8 @@ void ReleaseDoc_1() {
 
 
     cout << "# " << vtuberLN << " " << vtuberFN << " Noises" << endl;
-    cout << vtuberLN << " Noises is a clicker app for Android smartphones and tablets that brings entertainment to you by playing noises made by " << vtuberLN << " ." << endl;
-    cout << "The interface of " << vtuberLN << " Noises is designed to be simple, intuitive and efficient. By removing what is not essential, we make access to everything you need even easier." << endl;
+    cout << vtuberFN << " Noises is a clicker app for Android smartphones and tablets that brings entertainment to you by playing noises made by " << vtuberFN << " ." << endl;
+    cout << "The interface of " << vtuberFN << " Noises is designed to be simple, intuitive and efficient. By removing what is not essential, we make access to everything you need even easier." << endl;
     cout << endl;
 
     cout << "# Download" << endl;
