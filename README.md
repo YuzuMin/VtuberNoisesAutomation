@@ -1,5 +1,5 @@
 # VtuberNoisesAutomation
-Vtuber Noises Automation is an Open Source C++ program developed to write code for YuzuMin's Vtuber Noises project and projects based on it.
+Vtuber Noises Automation is an Open-Source C++ program developed to write code for YuzuMin's Vtuber Noises project and projects based on it.
 
 ## Version  
 ~~~
