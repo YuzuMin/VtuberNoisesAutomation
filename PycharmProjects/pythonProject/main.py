@@ -3,7 +3,7 @@
 
 
 def ReadToList(listA):
-    file1 =open('file.txt','r') #Open file to read
+    file1 =open('file.txt','r',encoding = "utf8") #Open file to read
     Lines =file1.readlines()    #Read lines from file
     for line in Lines:          #Loop for all lines read from file
         line=line[:-1]          #To remove \n from line
@@ -21,8 +21,8 @@ listA = ['emp']
 listA = ReadToList(listA)
 
 filenumber=0        #Starting number for Audio Files
-filepath = r'D:\GIT\Audio\KiaraNoise2\\'
-filepath2 = r'D:\GIT\Audio\KiaraNoise3\\'
+filepath = r'D:\GIT\Audio\Source\\'
+filepath2 = r'D:\GIT\Audio\Output\\'
 
 for filename in os.listdir(filepath):
     filenumber += 1
