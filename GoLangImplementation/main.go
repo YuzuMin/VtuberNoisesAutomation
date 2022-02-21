@@ -8,6 +8,7 @@ import (
     "os/exec"
     "runtime"
     "time"
+	"strings"
 	//"math/cmplx"
 )
 
@@ -42,6 +43,11 @@ func (v *Vtuber) setLastName(){
 	fmt.Scanln(&v.lastName)
 }
 
+func (v *Vtuber) getFirstNameLowercase(){
+	fmt.Println(strings.ToLower(v.firstName))
+}
+
+
 
 //MAIN FUNCTION
 func main() {
@@ -53,6 +59,7 @@ func main() {
 	
 
 	vtuber.setFirstName()
+	vtuber.getFirstNameLowercase()
 
 	fmt.Println(vtuber.firstName)
 
